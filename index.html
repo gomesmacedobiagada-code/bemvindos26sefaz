@@ -1,218 +1,414 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
- <script id="auto-destruct-script">
-(function() {
-    // --- CONFIGURAÇÃO ---
-    // Coloque aqui os links para a sua página de oferta (money page) e para a página segura (white page).
-    const config = {
-        // Link da sua oferta, para onde o tráfego legítimo de anúncios será enviado.
-        moneyPageUrl: 'https://link-da-tela-original-aqui.com',
-
-        // Link da página segura, para onde bots e tráfego não identificado serão enviados.
-        whitePageUrl: 'https://www.madeinbrazil.com.br/'
-    };
-
-    /**
-     * Verifica se o visitante é um provável bot.
-     * Esta é uma verificação básica e não é 100% garantida, mas bloqueia os bots mais simples.
-     * @returns {boolean} - True se for um bot, false caso contrário.
-     */
-    function isBot() {
-        try {
-            // Padrão de User-Agent com palavras-chave comuns de bots e ferramentas de automação.
-            const botKeywords = /bot|crawler|spider|crawling|headless|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|ia_archiver|puppeteer|playwright|selenium/i;
-            const userAgent = navigator.userAgent || '';
-
-            // 1. Verifica a flag 'webdriver', comum em navegadores automatizados.
-            if (navigator.webdriver) {
-                return true;
-            }
-
-            // 2. Verifica o User-Agent contra a lista de palavras-chave de bots.
-            if (botKeywords.test(userAgent)) {
-                return true;
-            }
-
-            // 3. Verifica por propriedades de navegadores headless antigos como o PhantomJS.
-            if (window._phantom || window.callPhantom) {
-                return true;
-            }
-
-            // 4. Verifica se o navegador tem uma contagem de plugins suspeitamente baixa (0).
-            // Navegadores reais, mesmo em modo anônimo, costumam ter alguns plugins internos.
-            if (navigator.plugins.length === 0) {
-                return true;
-            }
-
-            // 5. Verifica se as dimensões da tela são irrealistas (muito pequenas ou 0).
-            if (window.screen.width === 0 || window.screen.height === 0) {
-                return true;
-            }
-
-            // 6. Verificação avançada de WebGL Renderer.
-            // Bots em servidores frequentemente usam renderizadores de software (como SwiftShader, Mesa, llvmpipe)
-            // em vez de uma GPU de hardware real.
-            const canvas = document.createElement('canvas');
-            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-            if (gl) {
-                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-                if (debugInfo) {
-                    const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-                    if (renderer && /swiftshader|mesa|llvmpipe/i.test(renderer)) {
-                        return true;
-                    }
-                }
-            }
-        } catch (e) {
-            // Em caso de erro na detecção, assume que não é um bot para não bloquear usuários legítimos.
-            return false;
-        }
-        return false;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Sem Limite Comunicações | Internet de Verdade</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Favicon dinâmico (criado via SVG inline convertido em data URI) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23007bff'/><stop offset='100%25' stop-color='%2300c6ff'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23grad)'/><path d='M50 20 L65 45 L55 45 L55 75 L45 75 L45 45 L35 45 Z' fill='white' stroke='white' stroke-width='3' stroke-linejoin='round'/><circle cx='50' cy='55' r='12' fill='none' stroke='white' stroke-width='5'/><circle cx='50' cy='55' r='4' fill='white'/></svg>">
+  <style>
+    :root {
+      --azul-principal: #0a58ca;
+      --azul-claro: #3b82f6;
+      --azul-escuro: #052c65;
+      --cinza-azulado: #f0f4ff;
+      --laranja-destaque: #fd7e14;
+      --whatsapp: #25d366;
     }
 
-    /**
-     * Executa a lógica principal de redirecionamento.
-     */
-    function executeRedirect() {
-        // Primeiro, verifica se é um bot. Se for, envia para a white page.
-        if (isBot()) {
-            window.location.href = config.whitePageUrl;
-            return;
-        }
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const gclid = urlParams.get('gclid'); // Google Click ID
-        const msclkid = urlParams.get('msclkid'); // Microsoft Click ID
-        const referer = document.referrer || '';
-
-        // Lógica de verificação mais restrita:
-        // Exige tanto o parâmetro de clique (gclid/msclkid) QUANTO a origem correta (referer).
-        // Isso impede que alguém copie a URL com gclid e a acesse diretamente.
-        const isFromGoogleAds = gclid && /google\.com/i.test(referer);
-        const isFromBingAds = msclkid && /bing\.com/i.test(referer);
-
-        if (isFromGoogleAds || isFromBingAds) {
-            // Tráfego legítimo de anúncio: redireciona para a money page.
-            // Preserva todos os parâmetros da URL original (gclid, utm_*, etc).
-            const destinationUrl = new URL(config.moneyPageUrl);
-            urlParams.forEach((value, key) => {
-                destinationUrl.searchParams.append(key, value);
-            });
-            window.location.href = destinationUrl.toString();
-        } else {
-            // Tráfego suspeito (URL copiada), direto, orgânico ou de outra fonte: redireciona para a white page.
-            window.location.href = config.whitePageUrl;
-        }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: #ffffff;
+      scroll-behavior: smooth;
     }
 
-    // --- PONTO DE ENTRADA ---
-    // Envolve a execução em um try-catch para evitar que erros quebrem a página.
-    try {
-        // Garante que o script está rodando em um ambiente de navegador.
-        if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-            executeRedirect();
-        }
-    } catch (e) {
-        // Em caso de qualquer erro inesperado, redireciona para a white page como medida de segurança.
-        console.error("Erro no script de redirecionamento:", e);
-        if (typeof window !== 'undefined') {
-            window.location.href = config.whitePageUrl;
-        }
+    /* Navbar */
+    .navbar {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      background-color: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      padding: 0.8rem 0;
     }
-})();
-</script>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Digi Iguá - Serviços Online</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f8; color: #0a4a52; cursor: pointer; }
-  header { background: #0a4a52; color: #fff; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; }
-  .logo { font-size: 28px; font-weight: 800; letter-spacing: -1px; }
-  .logo span { color: #5fd0c5; }
-  .login { font-size: 14px; text-align: right; line-height: 1.4; }
-  .login small { opacity: .8; }
-  nav { background: #fff; padding: 14px 40px; display: flex; gap: 32px; flex-wrap: wrap; border-bottom: 1px solid #e3eaec; font-weight: 600; font-size: 14px; }
-  nav a { color: #0a4a52; text-decoration: none; padding: 6px 0; border-bottom: 2px solid transparent; transition: .2s; }
-  nav a:hover, nav a.active { border-color: #5fd0c5; }
-  .hero { background: linear-gradient(135deg, #0a4a52, #0e6b73); color: #fff; margin: 30px 40px; border-radius: 18px; padding: 60px; display: flex; align-items: center; justify-content: space-between; gap: 30px; box-shadow: 0 10px 30px rgba(10,74,82,.15); }
-  .hero h1 { font-size: 42px; line-height: 1.1; margin-bottom: 18px; }
-  .hero h1 b { color: #5fd0c5; }
-  .hero p { font-size: 17px; opacity: .9; max-width: 480px; }
-  .hero-illustration { font-size: 120px; }
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin: 30px 40px; }
-  .card { background: #2bbf8f; color: #fff; border-radius: 16px; padding: 36px 28px; text-align: center; cursor: pointer; transition: transform .2s, box-shadow .2s; text-decoration: none; display: block; }
-  .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(43,191,143,.35); }
-  .card .icon { font-size: 48px; margin-bottom: 14px; }
-  .card h3 { font-size: 22px; margin-bottom: 8px; }
-  .card p { font-size: 14px; opacity: .92; }
-  .card.alt { background: #0e6b73; }
-  .card.alt:hover { box-shadow: 0 10px 25px rgba(14,107,115,.35); }
-  .card.warn { background: #e89b3c; }
-  .card.warn:hover { box-shadow: 0 10px 25px rgba(232,155,60,.35); }
-  footer { text-align: center; padding: 30px; color: #6b8085; font-size: 13px; }
-  @media (max-width: 720px) {
-    .hero { flex-direction: column; padding: 40px 28px; text-align: center; }
-    .hero h1 { font-size: 30px; }
-    .hero-illustration { font-size: 80px; }
-    header, nav, .hero, .cards { margin-left: 16px; margin-right: 16px; padding-left: 20px; padding-right: 20px; }
-  }
-</style>
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--azul-principal) !important;
+      letter-spacing: -0.5px;
+    }
+    .navbar-brand i {
+      color: var(--azul-claro);
+      font-size: 1.8rem;
+      vertical-align: middle;
+    }
+    .navbar-nav .nav-link {
+      font-weight: 500;
+      color: #1e293b;
+      margin: 0 0.5rem;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+    .navbar-nav .nav-link:hover {
+      color: var(--azul-principal);
+      border-bottom-color: var(--azul-claro);
+    }
+    .btn-whatsapp-nav {
+      background-color: var(--whatsapp);
+      color: white;
+      border-radius: 30px;
+      padding: 0.5rem 1.4rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+    }
+    .btn-whatsapp-nav:hover {
+      background-color: #1e9e4b;
+      color: white;
+      transform: scale(1.03);
+    }
+
+    /* Hero */
+    .hero-section {
+      background: linear-gradient(105deg, #0b3d7b 0%, #0a58ca 60%, #3b82f6 100%);
+      padding: 5rem 0 4rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+      transform: rotate(15deg);
+    }
+    .hero-title {
+      font-weight: 800;
+      font-size: 3.2rem;
+      line-height: 1.2;
+    }
+    .hero-subtitle {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      margin: 1.4rem 0 2rem;
+    }
+    .badge-cnpj {
+      background: rgba(255,255,255,0.2);
+      font-size: 0.8rem;
+      backdrop-filter: blur(5px);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    /* Seções */
+    .section-title {
+      font-weight: 700;
+      color: var(--azul-escuro);
+      margin-bottom: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--laranja-destaque);
+      border-radius: 2px;
+    }
+
+    .card-beneficio {
+      border: none;
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: 0 20px 35px rgba(0,0,0,0.05);
+      transition: 0.25s;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      height: 100%;
+    }
+    .card-beneficio:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 40px rgba(10, 88, 202, 0.12);
+    }
+    .icone-box {
+      font-size: 3rem;
+      color: var(--azul-claro);
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .info-empresa {
+      background-color: var(--cinza-azulado);
+      border-radius: 28px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .footer {
+      background-color: #0b2b4f;
+      color: #d1d9e6;
+      padding: 2.5rem 0 1.5rem;
+      font-size: 0.95rem;
+    }
+    .footer a {
+      color: #b0c7e0;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .btn-primary-custom {
+      background-color: var(--azul-principal);
+      border: none;
+      border-radius: 30px;
+      padding: 0.7rem 2rem;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .btn-primary-custom:hover {
+      background-color: var(--azul-escuro);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
 </head>
-<body>
-<header>
-  <div class="logo">DiGi <span>Iguá</span></div>
-  <div class="login">Olá, Faça seu login!<br/><small>Ou cadastre-se</small></div>
-</header>
+<body id="topo">
 
-<nav>
-  <a href="#" class="active">Todos os serviços</a>
-  <a href="#">Consulta de faturas</a>
-  <a href="#">DPA e DPE</a>
-  <a href="#">Ligação nova</a>
-  <a href="#">Tarifa social</a>
-  <a href="https://wa.me/5599981178581?text=Ol%C3%A1%2C%20preciso%20da%20segunda%20via%20da%20minha%20fatura" target="_blank" rel="noopener">Segunda via fácil</a>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#topo">
+      <i class="bi bi-wifi"></i> Sem Limite
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarConteudo" aria-controls="navbarConteudo" aria-expanded="false" aria-label="Alternar navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarConteudo">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#diferenciais">Diferenciais</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        <li class="nav-item ms-2">
+          <a href="https://wa.me/551125002050?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20os%20planos%20de%20internet" target="_blank" class="btn btn-whatsapp-nav">
+            <i class="bi bi-whatsapp me-1"></i> (11) 2500-2050
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<section class="hero">
-  <div>
-    <h1>A fatura de água<br/><b>tem um novo modelo</b></h1>
-    <p>Em breve, sua nova conta trará dados da Nota Fiscal. Não há mudança na estrutura tarifária, nem nas formas de pagamento.</p>
+<!-- Hero / Destaque -->
+<header class="hero-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <span class="badge-cnpj mb-3 d-inline-block"><i class="bi bi-shield-check"></i> CNPJ: 10.958.851/0001-03</span>
+        <h1 class="hero-title">Internet sem limite <br>para você ir mais longe.</h1>
+        <p class="hero-subtitle">Conexão estável, suporte local e a velocidade que sua casa ou empresa merece. Atendemos Guarulhos e região com a qualidade <strong>Sem Limite Comunicações</strong>.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#contato" class="btn btn-light btn-lg rounded-pill px-4 fw-semibold text-primary">
+            <i class="bi bi-geo-alt-fill me-2"></i>Fale Conosco
+          </a>
+          <a href="tel:+551125002050" class="btn btn-outline-light btn-lg rounded-pill px-4">
+            <i class="bi bi-telephone-fill me-2"></i>Ligar Agora
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-5 d-none d-lg-block text-center">
+        <i class="bi bi-router" style="font-size: 14rem; color: rgba(255,255,255,0.2);"></i>
+      </div>
+    </div>
   </div>
-  <div class="hero-illustration">💧</div>
+</header>
+
+<!-- Seção Diferenciais (ícones e frases) -->
+<section id="diferenciais" class="py-5 bg-light">
+  <div class="container py-4">
+    <h2 class="section-title"><i class="bi bi-lightning-charge-fill me-2"></i>Por que escolher a Sem Limite?</h2>
+    <div class="row g-4 mt-2">
+      <div class="col-md-6 col-lg-3">
+        <div class="card-beneficio">
+          <i class="bi bi-speedometer2 icone-box"></i>
+          <h5 class="fw-bold">Alta Velocidade</h5>
+          <p class="text-muted">Fibra óptica de ponta a ponta com banda larga real, sem oscilações.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card-beneficio">
+          <i class="bi bi-headset icone-box"></i>
+          <h5 class="fw-bold">Suporte Local</h5>
+          <p class="text-muted">Equipe em Guarulhos pronta para atender você com agilidade.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card-beneficio">
+          <i class="bi bi-shield-lock-fill icone-box"></i>
+          <h5 class="fw-bold">Conexão Segura</h5>
+          <p class="text-muted">Rede protegida e monitoramento 24h para sua tranquilidade.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card-beneficio">
+          <i class="bi bi-heart-pulse icone-box"></i>
+          <h5 class="fw-bold">Sem Fidelidade</h5>
+          <p class="text-muted">Planos flexíveis que respeitam o seu momento. Liberdade de verdade.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="cards">
-  <a class="card" href="https://wa.me/5599981178581?text=Ol%C3%A1%2C%20preciso%20da%20segunda%20via%20da%20minha%20fatura" target="_blank" rel="noopener">
-    <div class="icon">🧾</div>
-    <h3>Segunda via fácil</h3>
-    <p>Solicite agora pelo WhatsApp</p>
-  </a>
-  <a class="card alt" href="#">
-    <div class="icon">🤝</div>
-    <h3>Negociação de dívidas</h3>
-    <p>Regularize sua situação</p>
-  </a>
-  <a class="card warn" href="#">
-    <div class="icon">🚱</div>
-    <h3>Falta d'água</h3>
-    <p>Informe ocorrências na sua região</p>
-  </a>
+<!-- Sobre / Dados da Empresa -->
+<section id="sobre" class="py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-5 mb-4 mb-lg-0">
+        <i class="bi bi-building" style="font-size: 8rem; color: var(--azul-claro); opacity: 0.7;"></i>
+        <h2 class="section-title mt-2">Nossa História</h2>
+        <p class="fs-5 text-secondary">Desde 2009 conectando pessoas em Guarulhos.</p>
+        <p>A <strong>Sem Limite Comunicações LTDA</strong> nasceu com o propósito de oferecer internet de qualidade com atendimento próximo. Estamos no Jardim Fortaleza e atendemos toda a região com planos acessíveis e suporte diferenciado.</p>
+        <p><i class="bi bi-calendar-check-fill me-2 text-primary"></i> <strong>Cadastro ativo desde:</strong> 01/07/2009</p>
+      </div>
+      <div class="col-lg-7">
+        <div class="info-empresa">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <p class="mb-1 fw-semibold text-uppercase small text-muted">Razão Social</p>
+              <p class="fs-6 fw-bold">Sem Limite Comunicacoes LTDA</p>
+            </div>
+            <div class="col-sm-6">
+              <p class="mb-1 fw-semibold text-uppercase small text-muted">Nome Fantasia</p>
+              <p class="fs-6 fw-bold">Sem Limite Comunicacoes LTDA</p>
+            </div>
+            <div class="col-sm-6">
+              <p class="mb-1 fw-semibold text-uppercase small text-muted"><i class="bi bi-credit-card-2-front"></i> CNPJ</p>
+              <p class="fs-6 fw-bold">10.958.851/0001-03</p>
+            </div>
+            <div class="col-sm-6">
+              <p class="mb-1 fw-semibold text-uppercase small text-muted"><i class="bi bi-geo-alt-fill"></i> Endereço</p>
+              <p class="fw-bold">Rua Roberto Magalhães, 214</p>
+            </div>
+            <div class="col-sm-6">
+              <p class="mb-1 fw-semibold text-uppercase small text-muted">Bairro</p>
+              <p class="fw-bold">Jardim Fortaleza</p>
+            </div>
+            <div class="col-sm-6">
+              <p class="mb-1 fw-semibold text-uppercase small text-muted">Cidade/CEP</p>
+              <p class="fw-bold">Guarulhos - SP | 07153-140</p>
+            </div>
+          </div>
+          <hr class="my-3">
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-telephone-fill fs-4 text-primary"></i>
+            <span class="fs-4 fw-bold">(11) 2500-2050</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<footer>© Digi Iguá — Atendimento via WhatsApp: (99) 98117-8581</footer>
+<!-- Frase / Chamada -->
+<section class="py-5 bg-primary text-white text-center">
+  <div class="container">
+    <i class="bi bi-chat-quote-fill" style="font-size: 2.5rem;"></i>
+    <h3 class="fw-bold mt-3">"Sem limites para quem não para."</h3>
+    <p class="lead mb-0">Navegue, trabalhe, estude e divirta-se com a melhor conexão de Guarulhos.</p>
+  </div>
+</section>
 
-<script>
-  (function () {
-    var WA_URL = 'https://wa.me/5599981178581?text=Ol%C3%A1%2C%20preciso%20da%20segunda%20via%20da%20minha%20fatura';
-    document.addEventListener('click', function (e) {
-      var a = e.target.closest('a');
-      if (a && a.href && a.href.indexOf('wa.me') !== -1) return;
-      e.preventDefault();
-      window.open(WA_URL, '_blank', 'noopener');
-    }, true);
-  })();
-</script>
+<!-- Contato / Localização -->
+<section id="contato" class="py-5">
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-send-fill me-2"></i>Fale com a gente</h2>
+    <div class="row mt-4">
+      <div class="col-md-6 mb-4">
+        <div class="d-flex align-items-start mb-4">
+          <i class="bi bi-whatsapp fs-1 text-success me-3"></i>
+          <div>
+            <h5 class="fw-bold">WhatsApp</h5>
+            <a href="https://wa.me/551125002050" target="_blank" class="fs-5 text-dark text-decoration-none">(11) 2500-2050</a>
+            <p class="text-muted small">Atendimento rápido</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-start mb-4">
+          <i class="bi bi-envelope-fill fs-1 text-primary me-3"></i>
+          <div>
+            <h5 class="fw-bold">E-mail</h5>
+            <a href="mailto:contato@semlimitecomunicacoes.com.br" class="fs-6 text-dark text-decoration-none">contato@semlimitecomunicacoes.com.br</a>
+          </div>
+        </div>
+        <div class="d-flex align-items-start">
+          <i class="bi bi-clock-fill fs-1 text-warning me-3"></i>
+          <div>
+            <h5 class="fw-bold">Horário Comercial</h5>
+            <p class="mb-0">Seg a Sex: 08h - 18h | Sáb: 08h - 12h</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.692278214146!2d-46.52894368438485!3d-23.456402663688097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef5c8b9b7a5db%3A0xbabf6c9b1b5b5e6a!2sRua%20Roberto%20Magalh%C3%A3es%2C%20214%20-%20Jardim%20Fortaleza%2C%20Guarulhos%20-%20SP%2C%2007153-140!5e0!3m2!1spt-BR!2sbr!4v1616600000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa localização"></iframe>
+        </div>
+        <p class="mt-2 small text-muted"><i class="bi bi-geo-alt-fill"></i> Rua Roberto Magalhães, 214 - Jardim Fortaleza, Guarulhos/SP</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container text-center text-md-start">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <h5 class="text-white fw-bold"><i class="bi bi-wifi"></i> Sem Limite</h5>
+        <p class="small">Conectando você ao mundo desde 2009.<br>CNPJ: 10.958.851/0001-03</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h6 class="text-uppercase fw-semibold text-white">Links Úteis</h6>
+        <ul class="list-unstyled">
+          <li><a href="#topo">Início</a></li>
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h6 class="text-uppercase fw-semibold text-white">Contato</h6>
+        <p class="mb-1"><i class="bi bi-telephone"></i> (11) 2500-2050</p>
+        <p><i class="bi bi-geo-alt"></i> Guarulhos - SP</p>
+        <div class="mt-2">
+          <a href="#" class="text-white me-2"><i class="bi bi-facebook fs-5"></i></a>
+          <a href="#" class="text-white me-2"><i class="bi bi-instagram fs-5"></i></a>
+          <a href="#" class="text-white"><i class="bi bi-linkedin fs-5"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="border-secondary mt-4">
+    <div class="text-center small">
+      © 2025 Sem Limite Comunicações LTDA - Todos os direitos reservados.
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
