@@ -10,8 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --cemig-blue:#003b71;--cemig-blue-dark:#002a52;--cemig-blue-light:#0058a8;
-  --cemig-yellow:#ffd400;--whats:#25d366;--whats-hover:#1ebe5b;--gray-bg:#f4f6f9;
+  --cemig-blue:#00736b;
+  --cemig-blue-dark:#005a54;
+  --cemig-blue-light:#009688;
+  --cemig-yellow:#ffd400;
+  --whats:#25d366;
+  --whats-hover:#1ebe5b;
+  --gray-bg:#f4f6f9;
 }
 *{box-sizing:border-box}
 body{font-family:'Open Sans',system-ui,sans-serif;color:#1f2937;background:#fff;margin:0}
@@ -29,7 +34,7 @@ body{font-family:'Open Sans',system-ui,sans-serif;color:#1f2937;background:#fff;
 .btn-yellow:hover{background:#ffdd33;color:var(--cemig-blue)}
 .btn-whatsapp{background:var(--whats);color:#fff;border:none;font-weight:700}
 .btn-whatsapp:hover{background:var(--whats-hover);color:#fff}
-.hero{background:linear-gradient(135deg,var(--cemig-blue),var(--cemig-blue-light));color:#fff;padding:3.5rem 0;position:relative;overflow:hidden}
+.hero{background:linear-gradient(135deg,var(--cemig-blue) 0%,var(--cemig-blue-light) 100%);color:#fff;padding:3.5rem 0;position:relative;overflow:hidden}
 .hero::after{content:"";position:absolute;right:-80px;bottom:-80px;width:300px;height:300px;border-radius:50%;background:rgba(255,212,0,.08)}
 .hero h1{font-weight:800;font-size:2.4rem;line-height:1.15}
 .hero h1 span{color:var(--cemig-yellow)}
@@ -41,7 +46,7 @@ body{font-family:'Open Sans',system-ui,sans-serif;color:#1f2937;background:#fff;
 .section-title{color:var(--cemig-blue);font-weight:800;text-align:center;margin-bottom:.5rem}
 .section-sub{text-align:center;color:#64748b;margin-bottom:2.5rem}
 .service-card{background:#fff;border-radius:.75rem;padding:1.5rem 1rem;text-align:center;text-decoration:none;color:#1f2937;display:block;height:100%;border:1px solid #e5e7eb;transition:all .2s}
-.service-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,59,113,.15);border-color:var(--cemig-blue-light);color:var(--cemig-blue)}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,115,107,.15);border-color:var(--cemig-blue-light);color:var(--cemig-blue)}
 .service-icon{width:60px;height:60px;border-radius:50%;background:var(--cemig-blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 1rem}
 .service-card.featured .service-icon{background:var(--cemig-yellow);color:var(--cemig-blue)}
 .service-card h4{font-size:.95rem;font-weight:700;margin:0}
