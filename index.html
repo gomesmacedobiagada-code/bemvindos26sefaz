@@ -1,97 +1,513 @@
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GCG Provedor de Internet - Fibra Óptica em Dumont/SP</title>
-  <meta name="description" content="GCG Provedor de Internet em Dumont/SP. Fibra óptica de alta velocidade, planos residenciais e empresariais, instalação rápida e suporte 24h." />
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <style>
-    :root{
-      --gcg-primary:#0046c7; --gcg-primary-dark:#002a7a;
-      --gcg-accent:#00c2ff; --gcg-light:#e8f1ff;
-      --gcg-bg:#f5f9ff; --gcg-dark:#0a1430;
-      --gcg-text:#1a1a2e; --gcg-muted:#6b7280;
-    }
-    *{font-family:'Poppins',sans-serif}
-    html{scroll-behavior:smooth}
-    body{background:#fff;color:var(--gcg-text);overflow-x:hidden}
-    .topbar{background:var(--gcg-dark);color:#cfd8e8;font-size:.82rem;padding:.5rem 0}
-    .topbar a{color:#cfd8e8;text-decoration:none;margin-right:1rem}
-    .topbar a:hover{color:var(--gcg-accent)}
-    .navbar{padding:.9rem 0;transition:.3s}
-    .navbar.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.08)}
-    .navbar-brand{font-weight:800;color:var(--gcg-primary)!important;font-size:1.55rem}
-    .navbar-brand i{color:var(--gcg-accent);font-size:1.8rem}
-    .nav-link{font-weight:600;color:var(--gcg-text)!important;padding:.5rem 1rem!important}
-    .nav-link:hover{color:var(--gcg-primary)!important}
-    .btn-gcg{background:linear-gradient(135deg,var(--gcg-primary),var(--gcg-accent));color:#fff;font-weight:600;border:0;padding:.75rem 1.8rem;border-radius:50px;box-shadow:0 8px 24px rgba(0,70,199,.3);transition:.3s}
-    .btn-gcg:hover{transform:translateY(-2px);color:#fff}
-    .btn-outline-gcg{border:2px solid var(--gcg-primary);color:var(--gcg-primary);font-weight:600;padding:.7rem 1.7rem;border-radius:50px;background:transparent}
-    .btn-outline-gcg:hover{background:var(--gcg-primary);color:#fff}
-    .hero{min-height:92vh;display:flex;align-items:center;color:#fff;background:linear-gradient(135deg,rgba(0,42,122,.92),rgba(0,70,199,.78)),url('assets/hero.jpg') center/cover}
-    .hero h1{font-weight:800;font-size:clamp(2.2rem,5vw,4rem);line-height:1.1}
-    .hero h1 span{background:linear-gradient(135deg,var(--gcg-accent),#7fdfff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .badge-hero{background:rgba(255,255,255,.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25);padding:.55rem 1.1rem;border-radius:50px;font-weight:600;font-size:.85rem;display:inline-flex;gap:.5rem}
-    .hero-card{background:rgba(255,255,255,.08);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:2rem;color:#fff}
-    .hero-card .speed{font-size:4rem;font-weight:900;line-height:1;background:linear-gradient(135deg,var(--gcg-accent),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    section{padding:90px 0}
-    .section-eyebrow{display:inline-block;background:var(--gcg-light);color:var(--gcg-primary);padding:.4rem 1rem;border-radius:50px;font-weight:600;font-size:.8rem;text-transform:uppercase;margin-bottom:1rem}
-    .section-title{font-weight:800;font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:.5rem}
-    .section-sub{color:var(--gcg-muted);margin-bottom:3rem;max-width:680px}
-    .section-sub.center{margin:0 auto 3rem}
-    .feature-card{background:#fff;border:1px solid #e5edff;border-radius:20px;padding:2rem;height:100%;transition:.3s}
-    .feature-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,70,199,.15);border-color:var(--gcg-accent)}
-    .feature-icon{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--gcg-primary),var(--gcg-accent));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.2rem}
-    .plan-card{border-radius:24px;padding:2.5rem 2rem;border:2px solid #e5edff;background:#fff;height:100%;transition:.3s;position:relative}
-    .plan-card.featured{background:linear-gradient(160deg,var(--gcg-primary),var(--gcg-primary-dark));color:#fff;border-color:transparent;transform:scale(1.04)}
-    .plan-card.featured .price-num,.plan-card.featured h2{color:#fff}
-    .plan-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gcg-accent);color:var(--gcg-primary-dark);padding:.4rem 1.2rem;border-radius:50px;font-size:.75rem;font-weight:800}
-    .price-num{font-size:3rem;font-weight:800;color:var(--gcg-primary)}
-    .plan-features li{padding:.55rem 0;display:flex;gap:.6rem}
-    .stats{background:linear-gradient(135deg,var(--gcg-primary),var(--gcg-primary-dark));color:#fff}
-    .stat-num{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;color:var(--gcg-accent)}
-    .coverage-card{background:#fff;border-radius:20px;padding:2.5rem;box-shadow:0 10px 40px rgba(0,70,199,.08)}
-    .coverage-input{border:2px solid #e5edff;border-radius:50px;padding:.85rem 1.5rem}
-    .about-img,.store-img,.tech-img{border-radius:24px;box-shadow:0 25px 60px rgba(0,70,199,.2)}
-    .about-stat{background:#fff;border-radius:16px;padding:1.2rem;box-shadow:0 10px 30px rgba(0,70,199,.1);text-align:center}
-    .mvv-card{background:#fff;border-radius:20px;padding:2.2rem;height:100%;border-left:5px solid var(--gcg-primary);box-shadow:0 10px 30px rgba(0,70,199,.06)}
-    .service-card{background:#fff;border-radius:20px;padding:2rem;border:1px solid #e5edff;height:100%;display:flex;gap:1.2rem}
-    .service-card .icon{width:56px;height:56px;border-radius:14px;background:var(--gcg-light);color:var(--gcg-primary);display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}
-    .testimonial{background:#fff;border-radius:20px;padding:2rem;height:100%;border:1px solid #e5edff;position:relative}
-    .testimonial .stars{color:#ffc107;letter-spacing:2px}
-    .avatar{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--gcg-primary),var(--gcg-accent));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
-    .event-item{background:#fff;border-radius:16px;padding:1.5rem;display:flex;gap:1.2rem;border:1px solid #e5edff}
-    .event-date{width:70px;height:70px;border-radius:14px;background:linear-gradient(135deg,var(--gcg-primary),var(--gcg-accent));color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
-    .event-date .day{font-size:1.4rem;font-weight:800}
-    .event-date .month{font-size:.7rem;text-transform:uppercase}
-    .blog-card{border-radius:20px;overflow:hidden;border:1px solid #e5edff;height:100%;background:#fff;transition:.3s}
-    .blog-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,70,199,.15)}
-    .blog-img{height:200px;background:linear-gradient(135deg,var(--gcg-primary),var(--gcg-accent));display:flex;align-items:center;justify-content:center;color:#fff;font-size:3.5rem;position:relative}
-    .blog-img.b2{background:linear-gradient(135deg,#00c2ff,#0046c7)}
-    .blog-img.b3{background:linear-gradient(135deg,#002a7a,#00c2ff)}
-    .blog-img.b4{background:linear-gradient(135deg,#0046c7,#7fdfff)}
-    .blog-tag{position:absolute;top:1rem;left:1rem;background:#fff;color:var(--gcg-primary);padding:.3rem .8rem;border-radius:50px;font-size:.7rem;font-weight:700}
-    .accordion-item{border:1px solid #e5edff;border-radius:16px!important;margin-bottom:1rem;overflow:hidden}
-    .accordion-button{font-weight:600;padding:1.3rem 1.5rem}
-    .accordion-button:not(.collapsed){background:var(--gcg-light);color:var(--gcg-primary)}
-    .accordion-button:focus{box-shadow:none}
-    .contact-card{background:#fff;border-radius:20px;padding:2rem;text-align:center;border:1px solid #e5edff}
-    .contact-card i{font-size:2.5rem;color:var(--gcg-primary);margin-bottom:1rem}
-    .contact-form .form-control{border:2px solid #e5edff;border-radius:12px;padding:.8rem 1rem}
-    .cta-band{background:linear-gradient(135deg,var(--gcg-primary),var(--gcg-primary-dark));color:#fff;border-radius:30px;padding:3.5rem}
-    footer{background:var(--gcg-dark);color:#cfd8e8;padding:70px 0 20px}
-    footer h5{color:#fff;font-weight:700;text-transform:uppercase;font-size:1rem}
-    footer a{color:#cfd8e8;text-decoration:none;display:block;padding:.3rem 0;font-size:.9rem}
-    footer a:hover{color:var(--gcg-accent)}
-    .social-icons a{display:inline-flex;width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);align-items:center;justify-content:center;padding:0}
-    .social-icons a:hover{background:var(--gcg-accent);color:var(--gcg-dark)}
-    .wpp-float{position:fixed;bottom:24px;right:24px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 10px 30px rgba(37,211,102,.5);z-index:999;text-decoration:none;animation:pulse 2s infinite}
-    @keyframes pulse{0%,100%{box-shadow:0 10px 30px rgba(37,211,102,.5)}50%{box-shadow:0 10px 30px rgba(37,211,102,.5),0 0 0 15px rgba(37,211,102,0)}}
-    @media(max-width:768px){section{padding:60px 0}.plan-card.featured{transform:none}}
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>GCG Provedor de Internet LTDA</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/svg+xml"
+        href='data:image/svg+xml,
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <rect width="100" height="100" rx="20" fill="%230d6efd"/>
+            <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle"
+            font-size="52" fill="white" font-family="Arial">G</text>
+        </svg>'>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .navbar{
+            background: #0d6efd;
+        }
+
+        .navbar .nav-link,
+        .navbar-brand{
+            color: #fff !important;
+            font-weight: 500;
+        }
+
+        .hero{
+            background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
+            url('https://images.unsplash.com/photo-1520869562399-e772f042f422?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 140px 0;
+        }
+
+        .hero h1{
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .hero p{
+            font-size: 1.2rem;
+        }
+
+        .btn-custom{
+            background: #ffc107;
+            border: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .section-title{
+            font-weight: bold;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after{
+            content: "";
+            width: 80px;
+            height: 4px;
+            background: #0d6efd;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .card-hover{
+            transition: .3s;
+            border: none;
+            box-shadow: 0 0 15px rgba(0,0,0,.1);
+        }
+
+        .card-hover:hover{
+            transform: translateY(-8px);
+        }
+
+        .icon-box{
+            font-size: 45px;
+            color: #0d6efd;
+            margin-bottom: 20px;
+        }
+
+        .bg-light-blue{
+            background: #f4f8ff;
+        }
+
+        footer{
+            background: #111827;
+            color: white;
+        }
+
+        footer a{
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        footer a:hover{
+            color: white;
+        }
+
+        .stats{
+            background: #0d6efd;
+            color: white;
+        }
+
+        .stats h2{
+            font-size: 3rem;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top shadow">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+            <i class="bi bi-wifi"></i> GCG Provedor
+        </a>
+
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+                <li class="nav-item"><a class="nav-link" href="#clientes">Clientes</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero text-center">
+    <div class="container">
+        <h1>Internet Rápida, Estável e de Qualidade</h1>
+        <p class="mt-4">
+            Conectando pessoas e empresas com alta velocidade e suporte especializado.
+        </p>
+
+        <div class="mt-4">
+            <a href="tel:1638440000" class="btn btn-custom btn-lg px-5">
+                <i class="bi bi-telephone-fill"></i> Ligue Agora
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" class="py-5">
+    <div class="container">
+        <h2 class="section-title">Quem Somos Nós</h2>
+
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <p>
+                    A <strong>GCG Provedor de Internet LTDA</strong> nasceu com o propósito
+                    de oferecer conexão de qualidade, estabilidade e suporte eficiente para
+                    toda a região.
+                </p>
+
+                <p>
+                    Trabalhamos com tecnologia moderna, atendimento humanizado e soluções
+                    completas para residências e empresas.
+                </p>
+
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-check-circle-fill text-primary"></i> Internet Fibra Óptica</li>
+                    <li><i class="bi bi-check-circle-fill text-primary"></i> Atendimento Especializado</li>
+                    <li><i class="bi bi-check-circle-fill text-primary"></i> Alta Performance</li>
+                    <li><i class="bi bi-check-circle-fill text-primary"></i> Cobertura Regional</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-6 text-center">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop"
+                    class="img-fluid rounded shadow"
+                    alt="Internet Fibra Óptica">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="py-5 bg-light-blue">
+    <div class="container">
+        <h2 class="section-title text-center">Nossos Serviços</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card card-hover h-100 text-center p-4">
+                    <div class="icon-box">
+                        <i class="bi bi-router-fill"></i>
+                    </div>
+                    <h4>Fibra Óptica</h4>
+                    <p>
+                        Internet ultra rápida para sua casa ou empresa.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-hover h-100 text-center p-4">
+                    <div class="icon-box">
+                        <i class="bi bi-headset"></i>
+                    </div>
+                    <h4>Suporte Técnico</h4>
+                    <p>
+                        Atendimento rápido e eficiente para nossos clientes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-hover h-100 text-center p-4">
+                    <div class="icon-box">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h4>Conexão Segura</h4>
+                    <p>
+                        Tecnologia estável com segurança e alta disponibilidade.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- MISSÃO -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title">Missão, Visão e Valores</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card p-4 card-hover h-100">
+                    <h4><i class="bi bi-bullseye text-primary"></i> Missão</h4>
+                    <p>
+                        Levar internet de qualidade com excelência em atendimento e inovação.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card p-4 card-hover h-100">
+                    <h4><i class="bi bi-eye-fill text-primary"></i> Visão</h4>
+                    <p>
+                        Ser referência em conectividade e tecnologia na região.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card p-4 card-hover h-100">
+                    <h4><i class="bi bi-heart-fill text-primary"></i> Valores</h4>
+                    <p>
+                        Ética, compromisso, inovação e respeito aos clientes.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ESTATÍSTICAS -->
+<section class="stats py-5 text-center">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-3">
+                <h2>+5K</h2>
+                <p>Clientes satisfeitos</p>
+            </div>
+
+            <div class="col-md-3">
+                <h2>99%</h2>
+                <p>Estabilidade</p>
+            </div>
+
+            <div class="col-md-3">
+                <h2>24h</h2>
+                <p>Suporte Técnico</p>
+            </div>
+
+            <div class="col-md-3">
+                <h2>100%</h2>
+                <p>Fibra Óptica</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CLIENTES -->
+<section id="clientes" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center">Clientes Satisfeitos</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card card-hover p-4">
+                    <p>
+                        “Excelente conexão e suporte rápido. Recomendo muito.”
+                    </p>
+                    <strong>- Cliente Residencial</strong>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-hover p-4">
+                    <p>
+                        “Internet estável para nossa empresa todos os dias.”
+                    </p>
+                    <strong>- Empresa Local</strong>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-hover p-4">
+                    <p>
+                        “Melhor provedor da região com ótimo atendimento.”
+                    </p>
+                    <strong>- Cliente Premium</strong>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- BLOG -->
+<section class="py-5 bg-light-blue">
+    <div class="container">
+        <h2 class="section-title">Nosso Blog</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card card-hover">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
+                        class="card-img-top">
+
+                    <div class="card-body">
+                        <h5>Dicas para Melhorar seu Wi-Fi</h5>
+                        <p>
+                            Saiba como melhorar a velocidade e estabilidade da sua rede.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-hover">
+                    <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=1200&auto=format&fit=crop"
+                        class="card-img-top">
+
+                    <div class="card-body">
+                        <h5>Fibra Óptica: Vantagens</h5>
+                        <p>
+                            Conheça os benefícios da internet fibra óptica.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-hover">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
+                        class="card-img-top">
+
+                    <div class="card-body">
+                        <h5>Internet para Empresas</h5>
+                        <p>
+                            Soluções corporativas com alta performance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="py-5">
+    <div class="container">
+        <h2 class="section-title">Contato</h2>
+
+        <div class="row">
+            <div class="col-lg-6">
+
+                <p><i class="bi bi-building"></i>
+                    <strong>Razão Social:</strong> Gcg Provedor de Internet LTDA
+                </p>
+
+                <p><i class="bi bi-card-text"></i>
+                    <strong>CNPJ:</strong> 51.980.509/0001-89
+                </p>
+
+                <p><i class="bi bi-geo-alt-fill"></i>
+                    Rua Lucia Breviglieri, 55 - Centro<br>
+                    Dumont - SP - CEP 14120-000
+                </p>
+
+                <p><i class="bi bi-telephone-fill"></i>
+                    (16) 3844-0000
+                </p>
+
+                <p><i class="bi bi-calendar-check"></i>
+                    Situação Cadastral desde 28/08/2023
+                </p>
+
+            </div>
+
+            <div class="col-lg-6">
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Seu nome">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Seu e-mail">
+                    </div>
+
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="5" placeholder="Sua mensagem"></textarea>
+                    </div>
+
+                    <button class="btn btn-primary">
+                        <i class="bi bi-send-fill"></i> Enviar Mensagem
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-5">
+    <div class="container">
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <h4>GCG Provedor</h4>
+                <p>
+                    Conectando você ao futuro com internet rápida e estável.
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Institucional</h5>
+
+                <ul class="list-unstyled">
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Políticas de Serviço de Envios</a></li>
+                    <li><a href="#">Termos e Condições Gerais de Venda</a></li>
+                    <li><a href="#">Política para Trocas e Devoluções</a></li>
+                    <li><a href="#">Quem Somos Nós</a></li>
+                    <li><a href="#">Missão Visão e Valores</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Mais Informações</h5>
+
+                <ul class="list-unstyled">
+                    <li><a href="#">Eventos e Feiras</a></li>
+                    <li><a href="#">Clientes satisfeitos</a></li>
+                    <li><a href="#">Nosso Blog</a></li>
+                    <li><a href="#">Nossa Loja Física</a></li>
+                </ul>
+
+                <div class="mt-3">
+                    <a href="#"><i class="bi bi-facebook fs-4 me-2"></i></a>
+                    <a href="#"><i class="bi bi-instagram fs-4 me-2"></i></a>
+                    <a href="#"><i class="bi bi-whatsapp fs-4"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="border-secondary">
+
+        <div class="text-center">
+            © 2026 GCG Provedor de Internet LTDA - Todos os direitos reservados.
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
