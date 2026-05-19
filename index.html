@@ -1,171 +1,462 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gcg Provedor de Internet LTDA</title>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-  <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>GCG Provedor de Internet | Conexão de Verdade</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-    rel="stylesheet"
-  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Favicon embutido (SVG convertido em base64 - ícone de internet/wifi) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23005299' stroke='%2300d4ff' stroke-width='4'/%3E%3Cpath d='M35 55 L50 70 L65 55' stroke='white' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='50' cy='40' r='8' fill='white'/%3E%3C/svg%3E">
   <style>
     :root {
-      --primary-color: #007bff;
-      --secondary-color: #6c757d;
-      --accent-color: #17a2b8;
-      --background-color: #f8f9fa;
+      --gc-azul-escuro: #001f3f;
+      --gc-azul-medio: #005299;
+      --gc-azul-claro: #00a6ff;
+      --gc-ciano: #00d4ff;
+      --gc-branco: #f8fbff;
+      --gc-cinza-claro: #e9f0f7;
+      --gc-texto: #1e2a38;
+      --sombra-suave: 0 8px 25px rgba(0, 40, 80, 0.08);
     }
     body {
-      background-color: var(--background-color);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: var(--gc-branco);
+      color: var(--gc-texto);
+      scroll-behavior: smooth;
     }
-    header {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
+    /* Navbar personalizada */
+    .navbar-gcg {
+      background: rgba(0, 25, 50, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      padding: 0.8rem 0;
     }
-    header h1 {
+    .navbar-brand {
       font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.5px;
+      color: white !important;
     }
-    .section-title {
-      margin-top: 3rem;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      color: var(--primary-color);
-      text-align: center;
-    }
-    footer {
-      background-color: var(--secondary-color);
-      color: white;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      margin-top: 3rem;
-    }
-    .icon-large {
-      font-size: 3rem;
-      color: var(--accent-color);
+    .navbar-brand span {
+      color: var(--gc-ciano);
     }
     .nav-link {
-      color: var(--primary-color);
+      color: rgba(255,255,255,0.8) !important;
+      font-weight: 500;
+      margin: 0 0.3rem;
+      transition: 0.25s;
     }
-    .nav-link:hover {
-      color: var(--accent-color);
+    .nav-link:hover, .nav-link.active {
+      color: var(--gc-ciano) !important;
+    }
+    /* Hero */
+    .hero-section {
+      background: linear-gradient(135deg, #001f3f 0%, #003b6f 100%);
+      padding: 6rem 0 5rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(0,212,255,0.25) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-title {
+      font-weight: 800;
+      font-size: 3rem;
+      line-height: 1.2;
+    }
+    .hero-title i {
+      color: var(--gc-ciano);
+    }
+    .btn-gcg-primary {
+      background: var(--gc-ciano);
+      border: none;
+      color: #001f3f;
+      font-weight: 700;
+      padding: 0.8rem 2.2rem;
+      border-radius: 40px;
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(0,212,255,0.4);
+    }
+    .btn-gcg-primary:hover {
+      background: #00b8e0;
+      color: #001220;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,212,255,0.55);
+    }
+    .btn-outline-gcg {
+      border: 2px solid var(--gc-ciano);
+      color: white;
+      font-weight: 600;
+      padding: 0.7rem 2rem;
+      border-radius: 40px;
+      transition: 0.3s;
+    }
+    .btn-outline-gcg:hover {
+      background: var(--gc-ciano);
+      color: #001f3f;
+      border-color: var(--gc-ciano);
+    }
+    /* Seções */
+    .section-title {
+      font-weight: 700;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: var(--gc-azul-escuro);
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: var(--gc-ciano);
+      border-radius: 4px;
+    }
+    .card-gcg {
+      background: white;
+      border: none;
+      border-radius: 20px;
+      box-shadow: var(--sombra-suave);
+      transition: 0.25s ease;
+      padding: 1.8rem 1.5rem;
+      height: 100%;
+    }
+    .card-gcg:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px rgba(0, 80, 150, 0.12);
+    }
+    .icon-circle {
+      width: 65px;
+      height: 65px;
+      background: rgba(0, 166, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: var(--gc-azul-medio);
+      margin-bottom: 1.2rem;
+    }
+    .footer-gcg {
+      background: #001a30;
+      color: #ccddee;
+      padding: 3rem 0 2rem;
+    }
+    .footer-gcg a {
+      color: #aad4f0;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .footer-gcg a:hover {
+      color: var(--gc-ciano);
       text-decoration: underline;
+    }
+    .badge-gcg {
+      background: rgba(0,212,255,0.15);
+      color: var(--gc-ciano);
+      font-weight: 600;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+    }
+    .dados-empresa i {
+      width: 22px;
+      color: var(--gc-ciano);
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Gcg Provedor de Internet LTDA</h1>
-    <p class="lead">Conectando você ao futuro com velocidade e qualidade</p>
-    <p><i class="bi bi-telephone-fill"></i> (16) 3844-0000</p>
-  </header>
+<body id="topo">
 
-  <main class="container">
-    <!-- Sobre a Empresa -->
-    <section id="quem-somos">
-      <h2 class="section-title">Quem Somos Nós</h2>
-      <p>
-        Fundada para oferecer conexão de internet rápida e estável em Dumont - SP,
-        a <strong>Gcg Provedor de Internet LTDA</strong> é referência em qualidade e atendimento.
-      </p>
-      <p>
-        <strong>Endereço:</strong> Rua Lucia Breviglieri, 55, Centro, Dumont - SP, 14120-000
-      </p>
-      <p>
-        <strong>CNPJ:</strong> 51.980.509/0001-89
-      </p>
-    </section>
-
-    <!-- Missão, Visão e Valores -->
-    <section id="missao-visao-valores">
-      <h2 class="section-title">Missão, Visão e Valores</h2>
-      <ul>
-        <li><strong>Missão:</strong> Prover internet de qualidade, com atendimento humanizado e inovação constante.</li>
-        <li><strong>Visão:</strong> Ser o provedor mais confiável e inovador da região.</li>
-        <li><strong>Valores:</strong> Compromisso, transparência, ética, inovação e satisfação do cliente.</li>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top navbar-gcg">
+  <div class="container">
+    <a class="navbar-brand" href="#topo">
+      <i class="bi bi-wifi"></i> GCG<span>NET</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navPrincipal" 
+            aria-controls="navPrincipal" aria-expanded="false" aria-label="Alternar navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navPrincipal">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item"><a class="nav-link active" href="#home">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#quemsomos">Quem Somos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+        <li class="nav-item"><a class="nav-link" href="#clientes">Clientes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#loja">Loja Física</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
       </ul>
-    </section>
+    </div>
+  </div>
+</nav>
 
-    <!-- Serviços -->
-    <section id="servicos">
-      <h2 class="section-title">Nossos Serviços</h2>
-      <div class="row text-center">
-        <div class="col-md-4 mb-3">
-          <i class="bi bi-wifi icon-large"></i>
-          <h5>Internet Banda Larga</h5>
-          <p>Conexão rápida e estável para sua casa ou empresa.</p>
+<!-- Hero / Início -->
+<header id="home" class="hero-section d-flex align-items-center">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <span class="badge badge-gcg mb-3"><i class="bi bi-lightning-charge-fill"></i> Fibra óptica de alta velocidade</span>
+        <h1 class="hero-title">Internet que <i class="bi bi-router"></i> <br>conecta seu mundo</h1>
+        <p class="lead mt-3 mb-4" style="color: #c0e0ff;">Navegação estável, suporte local e a melhor cobertura em Dumont e região. GCG Provedor, tecnologia de ponta para sua casa ou empresa.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#contato" class="btn btn-gcg-primary"><i class="bi bi-telephone-fill"></i> Assine já</a>
+          <a href="#servicos" class="btn btn-outline-gcg"><i class="bi bi-speedometer2"></i> Planos</a>
         </div>
-        <div class="col-md-4 mb-3">
-          <i class="bi bi-gear icon-large"></i>
-          <h5>Suporte Técnico</h5>
-          <p>Atendimento especializado para garantir seu funcionamento.</p>
-        </div>
-        <div class="col-md-4 mb-3">
-          <i class="bi bi-shield-lock icon-large"></i>
-          <h5>Segurança</h5>
-          <p>Proteção e privacidade para sua navegação.</p>
+        <div class="mt-4 d-flex align-items-center text-white-50 small">
+          <i class="bi bi-geo-alt-fill me-1"></i> Rua Lucia Breviglieri, 55 - Centro, Dumont/SP
         </div>
       </div>
-    </section>
+      <div class="col-lg-5 d-none d-lg-block text-center">
+        <i class="bi bi-globe2" style="font-size: 12rem; color: rgba(0,212,255,0.3);"></i>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <!-- Clientes -->
-    <section id="clientes">
-      <h2 class="section-title">Clientes Satisfeitos</h2>
-      <p>
-        Mais de 500 clientes em Dumont e região confiam na Gcg Provedor de Internet para manter seus negócios e lares conectados.
-      </p>
-    </section>
+<!-- Missão, Visão e Valores + Quem Somos -->
+<section id="quemsomos" class="py-5 bg-white">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-5">
+        <h2 class="section-title">Quem Somos Nós</h2>
+        <p class="mt-3 fs-5">A <strong>GCG Provedor de Internet LTDA</strong> nasceu para transformar a experiência digital em Dumont. Com infraestrutura moderna e atendimento humanizado, oferecemos conexão de fibra óptica com estabilidade e suporte técnico local.</p>
+        <p><i class="bi bi-building"></i> CNPJ: 51.980.509/0001-89</p>
+      </div>
+      <div class="col-lg-7">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card-gcg text-center">
+              <div class="icon-circle mx-auto"><i class="bi bi-bullseye"></i></div>
+              <h5>Missão</h5>
+              <p class="small">Levar internet de qualidade e suporte ágil para todos, impulsionando o desenvolvimento digital.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-gcg text-center">
+              <div class="icon-circle mx-auto"><i class="bi bi-eye-fill"></i></div>
+              <h5>Visão</h5>
+              <p class="small">Ser referência em conectividade no interior paulista, com inovação e satisfação total.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-gcg text-center">
+              <div class="icon-circle mx-auto"><i class="bi bi-heart-fill"></i></div>
+              <h5>Valores</h5>
+              <p class="small">Transparência, respeito, agilidade e compromisso com o cliente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Eventos e Feiras -->
-    <section id="eventos">
-      <h2 class="section-title">Eventos e Feiras</h2>
-      <p>
-        Participamos dos principais eventos e feiras de tecnologia para trazer o que há de melhor em conexão para você.
-      </p>
-    </section>
+<!-- Serviços / Políticas rápidas -->
+<section id="servicos" class="py-5" style="background: var(--gc-cinza-claro);">
+  <div class="container">
+    <h2 class="section-title mb-4">Nossos Serviços & Políticas</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card-gcg">
+          <i class="bi bi-shield-check fs-1 text-primary"></i>
+          <h5 class="mt-2">Política de Privacidade</h5>
+          <p class="small">Seus dados protegidos conforme a LGPD. Não compartilhamos informações sem autorização.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-gcg">
+          <i class="bi bi-box-seam fs-1 text-primary"></i>
+          <h5 class="mt-2">Políticas de Serviço de Envios</h5>
+          <p class="small">Equipamentos enviados com seguro e rastreio. Instalação agendada em até 48h úteis.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-gcg">
+          <i class="bi bi-file-text fs-1 text-primary"></i>
+          <h5 class="mt-2">Termos e Condições Gerais</h5>
+          <p class="small">Contrato claro, sem taxas ocultas. Fidelidade de 12 meses com benefícios exclusivos.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-gcg">
+          <i class="bi bi-arrow-repeat fs-1 text-primary"></i>
+          <h5 class="mt-2">Trocas e Devoluções</h5>
+          <p class="small">Roteadores e equipamentos com 7 dias para devolução. Suporte para troca imediata.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-gcg">
+          <i class="bi bi-calendar-event fs-1 text-primary"></i>
+          <h5 class="mt-2">Eventos e Feiras</h5>
+          <p class="small">Participamos da Feira Tech Dumont e eventos locais. Fique de olho nas datas!</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-gcg">
+          <i class="bi bi-people-fill fs-1 text-primary"></i>
+          <h5 class="mt-2">Clientes Satisfeitos</h5>
+          <p class="small">+500 famílias conectadas. Avaliação 4.9 ⭐ no Google. Sua satisfação é nossa meta.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Blog -->
-    <section id="blog">
-      <h2 class="section-title">Nosso Blog</h2>
-      <p>
-        Dicas, novidades e tudo sobre internet e tecnologia para manter você informado.
-      </p>
-    </section>
+<!-- Clientes / Destaque -->
+<section id="clientes" class="py-5 bg-white">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h2 class="section-title">Clientes satisfeitos</h2>
+        <blockquote class="fs-5 mt-4">“Desde que troquei para GCG, nunca mais tive lentidão. O suporte via WhatsApp resolve em minutos.”</blockquote>
+        <p class="fw-bold">— Maria E., Dumont</p>
+        <div class="d-flex gap-3 mt-3">
+          <span class="badge bg-success"><i class="bi bi-star-fill"></i> 4.9 estrelas</span>
+          <span class="badge bg-info text-dark"><i class="bi bi-emoji-smile"></i> 98% recomendam</span>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <i class="bi bi-chat-heart-fill" style="font-size: 8rem; color: var(--gc-azul-claro); opacity: 0.7;"></i>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Loja Física -->
-    <section id="loja">
-      <h2 class="section-title">Nossa Loja Física</h2>
-      <p>
-        Visite-nos na Rua Lucia Breviglieri, 55 - Centro, Dumont - SP para atendimento presencial e aquisição de planos.
-      </p>
-    </section>
+<!-- Blog e Loja Física -->
+<section id="blog" class="py-5" style="background: #f0f5fb;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <h2 class="section-title">Nosso Blog</h2>
+        <div class="card-gcg mt-3">
+          <i class="bi bi-newspaper fs-2 text-primary"></i>
+          <h5>Dicas para melhorar seu Wi-Fi</h5>
+          <p>Pequenos ajustes no roteador podem dobrar a velocidade. Confira as melhores práticas.</p>
+          <a href="#" class="btn btn-sm btn-outline-primary">Leia mais →</a>
+        </div>
+        <div class="card-gcg mt-3">
+          <i class="bi bi-lightbulb fs-2 text-primary"></i>
+          <h5>Fibra óptica vs Cabo: entenda</h5>
+          <p>Por que a fibra é mais estável e como ela revoluciona o streaming e jogos online.</p>
+          <a href="#" class="btn btn-sm btn-outline-primary">Leia mais →</a>
+        </div>
+      </div>
+      <div id="loja" class="col-md-6 mb-4">
+        <h2 class="section-title">Nossa Loja Física</h2>
+        <div class="card-gcg h-auto">
+          <i class="bi bi-shop fs-1 text-primary"></i>
+          <h5>Atendimento presencial</h5>
+          <p><i class="bi bi-geo-alt-fill"></i> Rua Lucia Breviglieri, 55 - Centro, Dumont - SP, 14120-000</p>
+          <p><i class="bi bi-telephone"></i> (16) 3844-0000</p>
+          <p><i class="bi bi-clock"></i> Seg a Sex: 08h-18h | Sáb: 08h-12h</p>
+          <span class="badge bg-success">Loja física aberta</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Políticas e Termos -->
-    <section id="politicas">
-      <h2 class="section-title">Políticas e Termos</h2>
-      <ul class="list-unstyled">
-        <li><a href="#" class="nav-link">Política de Privacidade</a></li>
-        <li><a href="#" class="nav-link">Políticas de Serviço de Envios</a></li>
-        <li><a href="#" class="nav-link">Termos e Condições Gerais de Venda</a></li>
-        <li><a href="#" class="nav-link">Política para Trocas e Devoluções</a></li>
-      </ul>
-    </section>
-  </main>
+<!-- Contato e dados completos -->
+<section id="contato" class="py-5 text-white" style="background: #002b4d;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 mb-4">
+        <h2 class="section-title text-white" style="border-color: var(--gc-ciano);">Fale conosco</h2>
+        <ul class="list-unstyled mt-4 dados-empresa">
+          <li class="mb-2"><i class="bi bi-building"></i> <strong>Razão Social:</strong> Gcg Provedor de Internet LTDA</li>
+          <li class="mb-2"><i class="bi bi-tag"></i> <strong>Nome Fantasia:</strong> Gcg Provedor de Internet LTDA</li>
+          <li class="mb-2"><i class="bi bi-credit-card"></i> <strong>CNPJ:</strong> 51.980.509/0001-89</li>
+          <li class="mb-2"><i class="bi bi-calendar-check"></i> <strong>Situação Cadastral:</strong> Ativa (28/08/2023)</li>
+          <li class="mb-2"><i class="bi bi-pin-map"></i> Rua Lucia Breviglieri, 55 - Centro</li>
+          <li class="mb-2"><i class="bi bi-map"></i> Dumont - SP | CEP 14120-000</li>
+          <li class="mb-2"><i class="bi bi-telephone-forward"></i> (16) 3844-0000</li>
+        </ul>
+      </div>
+      <div class="col-lg-7">
+        <div class="card-gcg bg-white text-dark p-4">
+          <h5 class="mb-3"><i class="bi bi-envelope"></i> Envie uma mensagem</h5>
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Nome completo" required>
+              </div>
+              <div class="col-md-6">
+                <input type="email" class="form-control" placeholder="E-mail" required>
+              </div>
+              <div class="col-12">
+                <input type="text" class="form-control" placeholder="Assunto">
+              </div>
+              <div class="col-12">
+                <textarea class="form-control" rows="3" placeholder="Sua mensagem"></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-gcg-primary"><i class="bi bi-send"></i> Enviar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2023 Gcg Provedor de Internet LTDA | CNPJ: 51.980.509/0001-89</p>
-  </footer>
+<!-- Footer com políticas e links -->
+<footer class="footer-gcg">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-md-4">
+        <h5 class="text-white"><i class="bi bi-wifi"></i> GCG Provedor</h5>
+        <p class="small">Conectando você ao futuro desde 2023. Internet rápida, suporte humano.</p>
+        <div class="d-flex gap-3 fs-5">
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h6 class="text-white">Políticas</h6>
+        <ul class="list-unstyled small">
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">Políticas de Serviço de Envios</a></li>
+          <li><a href="#">Termos e Condições Gerais de Venda</a></li>
+          <li><a href="#">Política para Trocas e Devoluções</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 class="text-white">Institucional</h6>
+        <ul class="list-unstyled small">
+          <li><a href="#quemsomos">Quem Somos Nós</a></li>
+          <li><a href="#">Missão Visão e Valores</a></li>
+          <li><a href="#">Eventos e Feiras</a></li>
+          <li><a href="#clientes">Clientes satisfeitos</a></li>
+          <li><a href="#blog">Nosso Blog</a></li>
+          <li><a href="#loja">Nossa Loja Física</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="border-secondary my-4">
+    <div class="text-center small">
+      <span>© 2023-2026 GCG Provedor de Internet LTDA · CNPJ 51.980.509/0001-89 · Dumont/SP</span><br>
+      <span>Situação cadastral regular · Todos os direitos reservados.</span>
+    </div>
+  </div>
+</footer>
 
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
