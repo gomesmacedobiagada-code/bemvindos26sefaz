@@ -1,142 +1,111 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Segunda Via de Fatura - Energia Online</title>
-<meta name="description" content="Solicite sua segunda via de fatura de energia online pelo WhatsApp. Atendimento rápido e seguro." />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
-<style>
-:root{--green-900:#064e3b;--green-800:#065f46;--green-700:#047857;--green-500:#10b981;--whats:#25d366;--whats-hover:#1ebe5b}
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#334155;background:#fff}
-.text-success-emphasis{color:var(--green-800)!important}
-.logo-badge{width:36px;height:36px;border-radius:.5rem;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#34d399,#047857)}
-.logo-badge i{font-size:1.1rem;color:#fff}
-.nav-item-top{color:var(--green-800);text-decoration:none}
-.nav-item-top:hover{color:var(--green-500)}
-.btn-success-dark{background:var(--green-900);color:#fff;border:none}
-.btn-success-dark:hover{background:var(--green-800);color:#fff}
-.bg-dark-green{background:var(--green-900)!important}
-.divider-v{width:1px;height:20px;background:rgba(255,255,255,.2)}
-.btn-whatsapp{background:var(--whats);color:#fff;border:none}
-.btn-whatsapp:hover{background:var(--whats-hover);color:#fff}
-.hero-img{position:relative;height:280px;overflow:hidden;background:#1f2937}
-@media(min-width:768px){.hero-img{height:440px}}
-.hero-img img{display:block;width:100%;height:100%;object-fit:cover}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(0,0,0,.2))}
-.service-cards-wrap{margin-top:-40px;position:relative;z-index:2}
-@media(min-width:768px){.service-cards-wrap{margin-top:-64px}}
-.service-card{display:flex;flex-direction:column;align-items:flex-start;background:#fff;border-radius:.75rem;padding:1.25rem;min-height:140px;text-decoration:none;color:#1e293b;box-shadow:0 10px 25px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s}
-.service-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.12)}
-.service-card i{font-size:1.75rem;color:var(--green-700);margin-bottom:1rem}
-.service-card span{font-size:.9rem;font-weight:600;line-height:1.3}
-.highlight-dark{background:linear-gradient(135deg,#1e293b,#0f172a)}
-.step-card{background:#fff;border:1px solid #e2e8f0;border-radius:.75rem;padding:1.5rem;box-shadow:0 1px 2px rgba(0,0,0,.04);height:100%}
-.step-num{width:40px;height:40px;border-radius:50%;background:var(--green-500);color:#fff;font-weight:700;font-size:1.1rem;display:flex;align-items:center;justify-content:center}
-.step-card h3{font-size:1.1rem;font-weight:700;color:#0f172a;margin-top:1rem}
-.step-card p{font-size:.875rem;color:#64748b;margin-top:.5rem;margin-bottom:0}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GCG Provedor de Internet - Internet de Alta Velocidade em Dumont/SP</title>
+  <meta name="description" content="GCG Provedor de Internet - Internet fibra óptica de alta velocidade em Dumont/SP. Planos residenciais e empresariais com estabilidade e suporte 24h." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --gcg-primary:#0046c7;
+      --gcg-primary-dark:#002a7a;
+      --gcg-accent:#00c2ff;
+      --gcg-bg:#f5f9ff;
+    }
+    *{font-family:'Poppins',sans-serif}
+    body{background:#fff;color:#1a1a2e}
+    .navbar-brand{font-weight:800;color:var(--gcg-primary)!important;font-size:1.5rem}
+    .navbar-brand i{color:var(--gcg-accent)}
+    .nav-link{font-weight:600;color:#1a1a2e!important}
+    .nav-link:hover{color:var(--gcg-primary)!important}
+    .btn-gcg{background:linear-gradient(135deg,var(--gcg-primary),var(--gcg-accent));color:#fff;font-weight:600;border:0;padding:.7rem 1.6rem;border-radius:50px;box-shadow:0 8px 24px rgba(0,70,199,.3);transition:.3s}
+    .btn-gcg:hover{transform:translateY(-2px);color:#fff;box-shadow:0 12px 32px rgba(0,70,199,.45)}
+    .hero{position:relative;min-height:90vh;display:flex;align-items:center;color:#fff;background:linear-gradient(135deg,rgba(0,42,122,.92),rgba(0,70,199,.78)),url('assets/hero.jpg') center/cover}
+    .hero h1{font-weight:800;font-size:clamp(2.2rem,5vw,4rem);line-height:1.1}
+    .hero p.lead{font-size:1.25rem;opacity:.95}
+    .badge-hero{background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);padding:.5rem 1rem;border-radius:50px;font-weight:600;font-size:.85rem;display:inline-flex;align-items:center;gap:.5rem}
+    section{padding:90px 0}
+    .section-title{font-weight:800;font-size:2.4rem;margin-bottom:.5rem}
+    .section-sub{color:#6b7280;margin-bottom:3rem}
+    .feature-card{background:#fff;border:1px solid #e5edff;border-radius:20px;padding:2rem;height:100%;transition:.3s}
+    .feature-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,70,199,.12);border-color:var(--gcg-accent)}
+    .feature-icon{width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,var(--gcg-primary),var(--gcg-accent));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin-bottom:1.2rem}
+    .plan-card{border-radius:24px;padding:2.5rem 2rem;border:2px solid #e5edff;background:#fff;height:100%;transition:.3s;position:relative}
+    .plan-card.featured{background:linear-gradient(135deg,var(--gcg-primary),var(--gcg-primary-dark));color:#fff;border-color:transparent;transform:scale(1.04)}
+    .plan-card.featured .price-num{color:#fff}
+    .plan-card:hover{transform:translateY(-6px)}
+    .plan-card.featured:hover{transform:scale(1.04) translateY(-6px)}
+    .plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gcg-accent);color:#002a7a;padding:.3rem 1rem;border-radius:50px;font-size:.75rem;font-weight:700}
+    .price-num{font-size:3rem;font-weight:800;color:var(--gcg-primary);line-height:1}
+    .plan-features li{padding:.5rem 0;display:flex;align-items:center;gap:.5rem}
+    .stats{background:linear-gradient(135deg,var(--gcg-primary),var(--gcg-primary-dark));color:#fff}
+    .stat-num{font-size:3rem;font-weight:800;color:var(--gcg-accent)}
+    .about-img,.store-img{border-radius:24px;box-shadow:0 20px 50px rgba(0,70,199,.2)}
+    .mvv-card{background:var(--gcg-bg);border-radius:20px;padding:2rem;height:100%;border-left:5px solid var(--gcg-primary)}
+    .testimonial{background:var(--gcg-bg);border-radius:20px;padding:2rem;height:100%}
+    .testimonial .stars{color:#ffc107}
+    .blog-card{border-radius:20px;overflow:hidden;border:1px solid #e5edff;height:100%;transition:.3s;background:#fff}
+    .blog-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,70,199,.12)}
+    .blog-img{height:200px;background:linear-gradient(135deg,var(--gcg-primary),var(--gcg-accent));display:flex;align-items:center;justify-content:center;color:#fff;font-size:3rem}
+    .blog-img.b2{background:linear-gradient(135deg,#00c2ff,#0046c7)}
+    .blog-img.b3{background:linear-gradient(135deg,#002a7a,#00c2ff)}
+    .contact-card{background:var(--gcg-bg);border-radius:20px;padding:1.8rem;text-align:center;height:100%}
+    .contact-card i{font-size:2.3rem;color:var(--gcg-primary);margin-bottom:.8rem}
+    footer{background:#0a1430;color:#cfd8e8;padding:60px 0 20px}
+    footer h5{color:#fff;font-weight:700;margin-bottom:1.2rem}
+    footer a{color:#cfd8e8;text-decoration:none;display:block;padding:.25rem 0;font-size:.9rem}
+    footer a:hover{color:var(--gcg-accent)}
+    .footer-bottom{border-top:1px solid #1f2a4d;margin-top:40px;padding-top:20px;font-size:.85rem;color:#8b95b3}
+    .wpp-float{position:fixed;bottom:24px;right:24px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 10px 30px rgba(37,211,102,.4);z-index:999;text-decoration:none}
+    .wpp-float:hover{color:#fff;transform:scale(1.1)}
+  </style>
 </head>
 <body>
 
-<header class="bg-white">
-  <div class="container d-flex align-items-center justify-content-between py-3">
-    <a href="/" class="d-flex align-items-center gap-2 text-decoration-none">
-      <span class="logo-badge"><i class="bi bi-lightning-charge-fill"></i></span>
-      <span class="fw-bold fs-4 text-success-emphasis">Agência Virtual</span>
-    </a>
-    <nav class="d-none d-lg-flex gap-4 small fw-semibold">
-      <a href="#" class="nav-item-top">Quem somos <i class="bi bi-chevron-down small"></i></a>
-      <a href="#" class="nav-item-top">Serviços <i class="bi bi-chevron-down small"></i></a>
-      <a href="#" class="nav-item-top">Sustentabilidade <i class="bi bi-chevron-down small"></i></a>
-      <a href="#" class="nav-item-top">Inovação <i class="bi bi-chevron-down small"></i></a>
-      <a href="#" class="nav-item-top">Fale Conosco <i class="bi bi-chevron-down small"></i></a>
-    </nav>
-    <div class="d-flex align-items-center gap-3">
-      <i class="bi bi-search d-none d-md-block text-secondary"></i>
-      <a href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener" class="btn btn-success-dark d-none d-md-inline-flex align-items-center gap-2">
-        <i class="bi bi-box-arrow-in-right"></i> Área do cliente
-      </a>
+<nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="#"><i class="bi bi-wifi"></i> GCG Provedor</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#planos">Planos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobre">Quem Somos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#loja">Loja Física</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        <li class="nav-item ms-lg-2"><a class="btn btn-gcg" href="#contato">Assine Já</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <span class="badge-hero mb-3"><i class="bi bi-lightning-charge-fill"></i> Fibra Óptica 100% em Dumont/SP</span>
+        <h1>Internet de verdade<br>para sua casa e empresa</h1>
+        <p class="lead mt-3">Velocidade, estabilidade e suporte 24h. Conecte-se ao que importa com a GCG Provedor de Internet.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#planos" class="btn btn-gcg btn-lg"><i class="bi bi-wifi me-2"></i>Ver Planos</a>
+          <a href="tel:1638440000" class="btn btn-outline-light btn-lg rounded-pill"><i class="bi bi-telephone me-2"></i>(16) 3844-0000</a>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
-<div class="bg-dark-green text-white">
-  <div class="container d-flex align-items-center justify-content-between">
-    <div class="d-flex align-items-center gap-4 py-2 small fw-medium overflow-auto">
-      <button class="btn btn-link text-white p-0 fw-bold text-decoration-none">SP / MS <i class="bi bi-chevron-down small"></i></button>
-      <span class="d-none d-sm-block divider-v"></span>
-      <a href="#" class="text-white text-decoration-none border-bottom border-2 border-white pb-1 fw-bold">Início</a>
-      <a href="#" class="text-white-50 text-decoration-none">Sua Casa</a>
-      <a href="#" class="text-white-50 text-decoration-none">Seu Negócio</a>
-      <a href="#" class="text-white-50 text-decoration-none">Poder Público</a>
-    </div>
-    <a href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener" class="btn btn-whatsapp d-none d-md-inline-flex align-items-center gap-2 my-2">
-      <i class="bi bi-whatsapp"></i> Serviços on-line
-    </a>
-  </div>
-</div>
+<!-- ... (Diferenciais, Planos, Sobre, MVV, Stats, Depoimentos, Eventos, Blog, Loja, Contato, Footer) -->
 
-<section class="position-relative">
-  <div class="hero-img">
-    <img src="https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=1600&q=80" alt="Vista panorâmica da cidade" />
-    <div class="hero-overlay"></div>
-  </div>
-  <div class="container service-cards-wrap">
-    <div class="row g-3">
-      <div class="col-6 col-sm-3 col-lg"><a href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener" class="service-card"><i class="bi bi-upc-scan"></i><span>Segunda Via<br>e Débito</span></a></div>
-      <div class="col-6 col-sm-3 col-lg"><a href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener" class="service-card"><i class="bi bi-lightbulb"></i><span>Falta de<br>Energia</span></a></div>
-      <div class="col-6 col-sm-3 col-lg"><a href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener" class="service-card"><i class="bi bi-file-earmark-text"></i><span>Canais de<br>Atendimento</span></a></div>
-      <div class="col-6 col-sm-3 col-lg"><a href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener" class="service-card"><i class="bi bi-credit-card"></i><span>Parcelamento<br>de Débitos</span></a></div>
-      <div class="col-6 col-sm-3 col-lg"><a href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener" class="service-card"><i class="bi bi-person"></i><span>Troca de<br>Nome da Conta</span></a></div>
-      <div class="col-6 col-sm-3 col-lg"><a href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener" class="service-card"><i class="bi bi-arrow-up-right"></i><span>Todos os<br>Serviços</span></a></div>
-      <div class="col-6 col-sm-3 col-lg"><a href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener" class="service-card"><i class="bi bi-wallet2"></i><span>Pagamentos</span></a></div>
-    </div>
-  </div>
-</section>
-
-<section class="container mt-5">
-  <div class="row g-3">
-    <div class="col-md-8">
-      <div class="highlight-dark p-4 p-md-5 rounded-4 text-white h-100">
-        <h2 class="fw-bold display-6">Segunda via da fatura na palma da sua mão</h2>
-        <p class="mt-3 text-light" style="max-width:28rem">Solicite sua 2ª via de conta de luz pelo WhatsApp em poucos minutos. Receba o boleto atualizado direto no seu celular.</p>
-        <a href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener" class="btn btn-whatsapp mt-3 d-inline-flex align-items-center gap-2 px-4 py-2 fw-bold"><i class="bi bi-whatsapp"></i> Solicitar pelo WhatsApp</a>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="bg-dark-green p-4 p-md-5 rounded-4 text-white h-100">
-        <h3 class="fw-bold">Tarifa</h3>
-        <p class="mt-2 small text-white-50">Saiba como funciona a tarifa de energia e tire suas dúvidas com o nosso atendimento.</p>
-        <a href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener" class="text-success fw-bold text-decoration-none mt-3 d-inline-block">Saiba mais →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="container mt-5 pt-4">
-  <h2 class="text-center fw-bold text-success-emphasis">Como pedir sua 2ª via</h2>
-  <div class="row g-3 mt-4">
-    <div class="col-md-3 col-sm-6"><div class="step-card"><div class="step-num">1</div><h3>Clique no WhatsApp</h3><p>Toque em qualquer botão verde da página.</p></div></div>
-    <div class="col-md-3 col-sm-6"><div class="step-card"><div class="step-num">2</div><h3>Informe seu CPF</h3><p>Ou número da instalação para localizarmos.</p></div></div>
-    <div class="col-md-3 col-sm-6"><div class="step-card"><div class="step-num">3</div><h3>Receba o boleto</h3><p>Em PDF, com PIX e código de barras.</p></div></div>
-    <div class="col-md-3 col-sm-6"><div class="step-card"><div class="step-num">4</div><h3>Pague onde quiser</h3><p>Banco, app, lotérica ou PIX.</p></div></div>
-  </div>
-  <div class="text-center mt-5">
-    <a href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg rounded-pill fw-bold px-4 py-3 d-inline-flex align-items-center gap-2 shadow"><i class="bi bi-whatsapp fs-4"></i> Falar no WhatsApp agora</a>
-  </div>
-</section>
-
-<footer class="bg-dark-green text-white-50 text-center py-4 mt-5">
-  <div class="container">
-    <div class="d-flex align-items-center justify-content-center gap-2">
-      <i class="bi bi-lightning-charge-fill text-success"></i>
-      <span class="fw-bold text-white">Agência Virtual</span>
-    </div>
-    <p class="mt-2 mb-0 small">Atendimento via WhatsApp para segunda via de fatura de energia.</p>
-  </div>
-</footer>
+<a href="https://wa.me/551638440000" class="wpp-float" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
