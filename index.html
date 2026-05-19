@@ -3,550 +3,423 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>GCG Provedor de Internet | Fibra Óptica em Dumont</title>
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
+  <title>Abc Náutica LTDA | Máquinas, Equipamentos e Peças</title>
+  <!-- Bootstrap 5 CSS + Ícones Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <!-- Favicon embutido (SVG convertido em base64 - ícone de globo com sinal wifi) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%230066cc;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%2300ccff;stop-opacity:1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='46' fill='url(%23grad)' stroke='white' stroke-width='3'/%3E%3Cpath d='M28 52 L50 72 L72 52' stroke='white' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='50' cy='35' r='9' fill='white'/%3E%3Cpath d='M35 28 L40 23 M65 28 L60 23' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <!-- Favicon dinâmico (ícone de âncora/nautico) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%230d6efd' class='bi bi-gear-wide-connected' viewBox='0 0 16 16'%3E%3Cpath d='M7.068.727c.243-.97 1.62-.97 1.864 0l.071.286a.96.96 0 0 0 1.622.434l.205-.211c.695-.719 1.888-.03 1.613.931l-.08.284a.96.96 0 0 0 1.187 1.187l.283-.081c.96-.275 1.65.918.931 1.613l-.211.205a.96.96 0 0 0 .434 1.622l.286.071c.97.243.97 1.62 0 1.864l-.286.071a.96.96 0 0 0-.434 1.622l.211.205c.719.695.03 1.888-.931 1.613l-.284-.08a.96.96 0 0 0-1.187 1.187l.081.283c.275.96-.918 1.65-1.613.931l-.205-.211a.96.96 0 0 0-1.622.434l-.071.286c-.243.97-1.62.97-1.864 0l-.071-.286a.96.96 0 0 0-1.622-.434l-.205.211c-.695.719-1.888.03-1.613-.931l.08-.284a.96.96 0 0 0-1.186-1.187l-.284.081c-.96.275-1.65-.918-.931-1.613l.211-.205a.96.96 0 0 0-.434-1.622l-.286-.071c-.97-.243-.97-1.62 0-1.864l.286-.071a.96.96 0 0 0 .434-1.622l-.211-.205c-.719-.695-.03-1.888.931-1.613l.284.08a.96.96 0 0 0 1.187-1.186l-.081-.284c-.275-.96.918-1.65 1.613-.931l.205.211a.96.96 0 0 0 1.622-.434zM12.973 8.5H8.25l-2.834 3.779A4.998 4.998 0 0 0 12.973 8.5zm0-1a4.998 4.998 0 0 0-7.557-3.779L8.25 7.5h4.723zM5.048 3.967c-.03.021-.058.043-.087.065l.087-.065zm-.431.355A4.995 4.995 0 0 0 3.002 8.5c0 1.336.524 2.551 1.382 3.449l.233-.175C3.955 10.836 3.5 9.717 3.5 8.5c0-1.045.347-2.01.932-2.786zm.878 7.15.233.174A4.995 4.995 0 0 0 8.5 13c1.045 0 2.01-.347 2.786-.932l-.174-.233C10.322 12.347 9.455 12.5 8.5 12.5c-.817 0-1.59-.19-2.278-.528z'/%3E%3C/svg%3E">
   <style>
     :root {
-      --azul-profundo: #0a1628;
-      --azul-escuro: #0f2440;
-      --azul-medio: #1a56db;
-      --azul-vivo: #3b82f6;
-      --ciano-destaque: #06b6d4;
-      --laranja-energia: #f97316;
-      --branco-puro: #ffffff;
-      --cinza-fundo: #f1f5f9;
-      --cinza-claro: #e2e8f0;
-      --texto-escuro: #1e293b;
-      --texto-medio: #475569;
-      --sombra-card: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
-      --sombra-elevada: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
-      --borda-suave: 1px solid rgba(0,0,0,0.05);
+      --cor-primaria: #0A3A5C; /* Azul marinho profundo */
+      --cor-secundaria: #D4A843; /* Dourado náutico */
+      --cor-destaque: #F8F9FA;
+      --cor-texto: #212529;
+      --cor-footer: #051F33;
+      scroll-behavior: smooth;
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background-color: var(--branco-puro);
-      color: var(--texto-escuro);
-      line-height: 1.6;
-      overflow-x: hidden;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+      color: var(--cor-texto);
+      background-color: #ffffff;
     }
-
-    /* Tipografia */
-    .display-heading {
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
+    /* Navbar personalizada */
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--cor-primaria) !important;
     }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #1a56db 0%, #06b6d4 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* Navbar */
-    .navbar-custom {
-      background: rgba(10, 22, 40, 0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0.9rem 0;
-      transition: all 0.3s ease;
-    }
-
-    .navbar-brand-custom {
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: white !important;
-      letter-spacing: -0.5px;
-    }
-
-    .navbar-brand-custom .icon-wifi {
-      color: #06b6d4;
-      font-size: 1.8rem;
-      margin-right: 0.3rem;
-    }
-
-    .nav-link-custom {
-      color: rgba(255,255,255,0.8) !important;
+    .navbar-light .navbar-nav .nav-link {
+      color: var(--cor-primaria);
       font-weight: 500;
-      margin: 0 0.2rem;
-      padding: 0.5rem 0.9rem !important;
+      transition: 0.2s;
+    }
+    .navbar-light .navbar-nav .nav-link:hover {
+      color: var(--cor-secundaria);
+    }
+    .btn-ouro {
+      background-color: var(--cor-secundaria);
+      border: none;
+      color: #000;
+      font-weight: 600;
+      padding: 0.5rem 1.8rem;
       border-radius: 30px;
-      transition: all 0.25s;
+      transition: all 0.3s;
     }
-
-    .nav-link-custom:hover,
-    .nav-link-custom.active {
-      color: white !important;
-      background: rgba(255,255,255,0.12);
+    .btn-ouro:hover {
+      background-color: #b58a2c;
+      color: #000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-
-    /* Hero Section */
-    .hero-area {
-      background: radial-gradient(circle at 20% 30%, #1a3a5c 0%, #0a1628 80%);
-      padding: 5.5rem 0 5rem;
+    .btn-azul {
+      background-color: var(--cor-primaria);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 0.6rem 2rem;
+      border-radius: 30px;
+    }
+    .btn-azul:hover {
+      background-color: #0b4b73;
+      color: white;
+    }
+    /* Hero section */
+    .hero {
+      background: linear-gradient(135deg, #0A3A5C 0%, #0d4f7c 100%);
+      color: white;
+      padding: 4rem 0;
       position: relative;
       overflow: hidden;
     }
-
-    .hero-area::after {
-      content: "";
-      position: absolute;
-      top: -15%;
-      right: -5%;
-      width: 550px;
-      height: 550px;
-      background: radial-gradient(circle, rgba(6, 182, 212, 0.18) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero-badge {
-      background: rgba(249, 115, 22, 0.15);
-      color: #f97316;
-      border: 1px solid rgba(249, 115, 22, 0.35);
-      font-weight: 600;
-      padding: 0.4rem 1.3rem;
-      border-radius: 50px;
-      display: inline-block;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn-primary-custom {
-      background: #f97316;
-      border: none;
-      color: white;
-      font-weight: 700;
-      padding: 0.85rem 2.3rem;
-      border-radius: 50px;
-      transition: 0.3s;
-      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.35);
-    }
-
-    .btn-primary-custom:hover {
-      background: #ea580c;
-      transform: translateY(-3px);
-      box-shadow: 0 14px 28px rgba(249, 115, 22, 0.45);
-      color: white;
-    }
-
-    .btn-outline-custom {
-      border: 2px solid white;
-      color: white;
-      font-weight: 600;
-      padding: 0.8rem 2.2rem;
-      border-radius: 50px;
-      transition: 0.3s;
-    }
-
-    .btn-outline-custom:hover {
-      background: white;
-      color: #0a1628;
-      border-color: white;
-    }
-
-    /* Seções */
-    .section-header {
+    .hero h1 {
       font-weight: 800;
-      font-size: 2.3rem;
-      margin-bottom: 0.8rem;
-      color: #0f2440;
+      font-size: 2.8rem;
     }
-
-    .section-line {
-      width: 65px;
-      height: 5px;
-      background: #f97316;
-      border-radius: 5px;
-      margin-bottom: 2rem;
+    .hero .lead {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.9);
     }
-
-    .card-feature {
-      background: white;
-      border: var(--borda-suave);
-      border-radius: 24px;
-      padding: 2rem 1.5rem;
-      box-shadow: var(--sombra-card);
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
-      height: 100%;
+    .icone-grande {
+      font-size: 3.5rem;
+      color: var(--cor-secundaria);
     }
-
-    .card-feature:hover {
-      transform: translateY(-10px);
-      box-shadow: var(--sombra-elevada);
-      border-color: #cbd5e1;
-    }
-
-    .icon-box {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #dbeafe, #e0f2fe);
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      color: #1a56db;
-      margin-bottom: 1.4rem;
-    }
-
-    .icon-box-laranja {
-      background: linear-gradient(135deg, #fff7ed, #ffedd5);
-      color: #f97316;
-    }
-
-    /* Seção de dados da empresa */
-    .data-card {
-      background: #f8fafc;
-      border-radius: 24px;
-      padding: 2rem;
-      border-left: 6px solid #1a56db;
-    }
-
-    .footer-custom {
-      background: #0f172a;
-      color: #cbd5e1;
-      padding: 3.5rem 0 2rem;
-    }
-
-    .footer-custom h6 {
-      color: white;
+    /* Seções */
+    .secao-titulo {
       font-weight: 700;
+      color: var(--cor-primaria);
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    .secao-titulo:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 60px;
+      height: 4px;
+      background-color: var(--cor-secundaria);
+      border-radius: 2px;
+    }
+    .card-info {
+      border-left: 4px solid var(--cor-secundaria);
+      background-color: #f0f6fb;
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .footer {
+      background-color: var(--cor-footer);
+      color: #ccc;
+      padding: 3rem 0 1.5rem;
+    }
+    .footer h5 {
+      color: white;
+      font-weight: 600;
       margin-bottom: 1.2rem;
     }
-
-    .footer-custom a {
-      color: #94a3b8;
+    .footer a {
+      color: #bbb;
       text-decoration: none;
       transition: 0.2s;
     }
-
-    .footer-custom a:hover {
-      color: #06b6d4;
+    .footer a:hover {
+      color: var(--cor-secundaria);
+      text-decoration: underline;
     }
-
-    .tag-politica {
-      background: #1e293b;
-      color: #cbd5e1;
-      padding: 0.5rem 1.2rem;
-      border-radius: 30px;
-      font-size: 0.85rem;
+    .social-icons i {
+      font-size: 1.6rem;
+      margin-right: 15px;
+      color: #aaa;
+      transition: 0.2s;
     }
-
+    .social-icons i:hover {
+      color: var(--cor-secundaria);
+      transform: scale(1.1);
+    }
+    .lista-icone li {
+      list-style: none;
+      margin-bottom: 0.6rem;
+    }
+    .lista-icone i {
+      color: var(--cor-secundaria);
+      margin-right: 8px;
+    }
     @media (max-width: 768px) {
-      .display-heading {
-        font-size: 2.2rem;
+      .hero h1 {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
-<body id="inicio">
+<body>
 
-<!-- Navegação -->
-<nav class="navbar navbar-expand-lg sticky-top navbar-custom">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
   <div class="container">
-    <a class="navbar-brand navbar-brand-custom" href="#inicio">
-      <i class="bi bi-wifi icon-wifi"></i> GCGNET
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <i class="bi bi-life-preserver me-2" style="font-size: 2rem; color: var(--cor-secundaria);"></i>
+      <span>Abc Náutica</span>
     </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Menu">
-      <span class="text-white"><i class="bi bi-list fs-2"></i></span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarConteudo" 
+            aria-controls="navbarConteudo" aria-expanded="false" aria-label="Alternar navegação">
+      <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link nav-link-custom active" href="#inicio">Início</a></li>
-        <li class="nav-item"><a class="nav-link nav-link-custom" href="#quemsomos">Quem Somos</a></li>
-        <li class="nav-item"><a class="nav-link nav-link-custom" href="#politicas">Políticas</a></li>
-        <li class="nav-item"><a class="nav-link nav-link-custom" href="#blog">Blog</a></li>
-        <li class="nav-item"><a class="nav-link nav-link-custom" href="#loja">Loja Física</a></li>
-        <li class="nav-item"><a class="nav-link nav-link-custom" href="#contato">Contato</a></li>
+    <div class="collapse navbar-collapse" id="navbarConteudo">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item"><a class="nav-link" href="#quem-somos">Quem Somos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#missao">Missão/Visão</a></li>
+        <li class="nav-item"><a class="nav-link" href="#loja">Loja Física</a></li>
+        <li class="nav-item"><a class="nav-link" href="#clientes">Clientes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+        <li class="nav-item ms-2">
+          <a href="tel:1149907756" class="btn btn-ouro"><i class="bi bi-telephone-fill me-1"></i> (11) 4990-7756</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- Hero / Início -->
-<header class="hero-area d-flex align-items-center">
+<!-- Hero Principal -->
+<section class="hero">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-lg-7 text-white">
-        <span class="hero-badge"><i class="bi bi-lightning-charge-fill me-1"></i> Fibra óptica ultra veloz</span>
-        <h1 class="display-heading display-4 mb-3">Internet que <span style="color:#06b6d4;">realmente</span> entrega velocidade</h1>
-        <p class="lead mb-4" style="color: #b9c9dd;">GCG Provedor de Internet LTDA — conectividade estável para sua casa ou empresa em Dumont e região. Suporte local e tecnologia de ponta.</p>
-        <div class="d-flex flex-wrap gap-3 mb-4">
-          <a href="#contato" class="btn btn-primary-custom"><i class="bi bi-whatsapp me-2"></i>Assinar Agora</a>
-          <a href="#politicas" class="btn btn-outline-custom"><i class="bi bi-file-text me-2"></i>Nossos Planos</a>
-        </div>
-        <p class="small"><i class="bi bi-geo-alt-fill me-1"></i> Rua Lucia Breviglieri, 55 · Centro · Dumont/SP</p>
-      </div>
-      <div class="col-lg-5 d-none d-lg-flex justify-content-center">
-        <div style="background: rgba(255,255,255,0.06); border-radius: 50%; padding: 2.5rem;">
-          <i class="bi bi-globe-americas" style="font-size: 13rem; color: rgba(6,182,212,0.45);"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- Quem Somos + Missão Visão Valores + Clientes -->
-<section id="quemsomos" class="py-5 bg-white">
-  <div class="container py-4">
-    <div class="row mb-5">
-      <div class="col-lg-6">
-        <h2 class="section-header">Quem Somos Nós</h2>
-        <div class="section-line"></div>
-        <p class="fs-5 text-secondary">A <strong>GCG Provedor de Internet LTDA</strong> é uma empresa 100% focada em oferecer a melhor experiência de internet banda larga via fibra óptica. Atuamos em Dumont desde 2023, com atendimento próximo e infraestrutura moderna.</p>
-        <div class="data-card mt-4">
-          <h5 class="fw-bold mb-3"><i class="bi bi-building me-2"></i>Dados Empresariais</h5>
-          <ul class="list-unstyled mb-0 small">
-            <li class="mb-2"><strong>Razão Social:</strong> Gcg Provedor de Internet LTDA</li>
-            <li class="mb-2"><strong>Nome Fantasia:</strong> Gcg Provedor de Internet LTDA</li>
-            <li class="mb-2"><strong>CNPJ:</strong> 51.980.509/0001-89</li>
-            <li class="mb-2"><strong>Situação Cadastral:</strong> Ativa (28/08/2023)</li>
-            <li><strong>Endereço:</strong> Rua Lucia Breviglieri, 55 - Centro, Dumont-SP, 14120-000</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-lg-6 mt-4 mt-lg-0">
-        <h3 class="fw-bold mb-3">Missão, Visão e Valores</h3>
-        <div class="row g-3">
-          <div class="col-12">
-            <div class="card-feature d-flex align-items-start">
-              <div class="icon-box icon-box-laranja me-3 flex-shrink-0"><i class="bi bi-bullseye"></i></div>
-              <div>
-                <h5>Missão</h5>
-                <p class="text-secondary small mb-0">Conectar pessoas e negócios com internet estável e suporte humano, promovendo inclusão digital.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="card-feature d-flex align-items-start">
-              <div class="icon-box me-3 flex-shrink-0"><i class="bi bi-eye"></i></div>
-              <div>
-                <h5>Visão</h5>
-                <p class="text-secondary small mb-0">Ser o provedor líder em satisfação no interior paulista até 2028.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="card-feature d-flex align-items-start">
-              <div class="icon-box icon-box-laranja me-3 flex-shrink-0"><i class="bi bi-heart"></i></div>
-              <div>
-                <h5>Valores</h5>
-                <p class="text-secondary small mb-0">Ética, transparência, agilidade e respeito ao cliente.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Clientes satisfeitos e Eventos -->
-    <div class="row mt-5 g-4 align-items-center">
-      <div class="col-md-6">
-        <span class="badge bg-success px-3 py-2 fs-6 mb-2"><i class="bi bi-star-fill"></i> 4.9 ★★★★★</span>
-        <h4 class="fw-bold">Clientes Satisfeitos</h4>
-        <p class="text-secondary">"Atendimento nota 10! A GCG resolveu meu problema em menos de 1 hora. Recomendo demais." — Carlos A.</p>
-        <p><i class="bi bi-emoji-smile text-warning"></i> +500 famílias conectadas · 98% de aprovação</p>
-      </div>
-      <div class="col-md-6">
-        <div class="card-feature text-center">
-          <i class="bi bi-calendar-event fs-1 text-primary"></i>
-          <h5>Eventos e Feiras</h5>
-          <p class="small">Presentes na Feira do Empreendedor de Dumont e exposições regionais. Fique ligado nas nossas redes!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Políticas e Serviços -->
-<section id="politicas" class="py-5" style="background: #f8fafc;">
-  <div class="container">
-    <h2 class="section-header">Políticas & Termos</h2>
-    <div class="section-line"></div>
-    <div class="row g-4 mt-2">
-      <div class="col-md-6 col-lg-4">
-        <div class="card-feature">
-          <div class="icon-box"><i class="bi bi-shield-lock"></i></div>
-          <h5>Política de Privacidade</h5>
-          <p class="small text-secondary">Seus dados protegidos conforme LGPD. Transparência total no uso das informações.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-feature">
-          <div class="icon-box"><i class="bi bi-truck"></i></div>
-          <h5>Políticas de Envios</h5>
-          <p class="small text-secondary">Equipamentos enviados com seguro e rastreio. Instalação em até 48h úteis.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-feature">
-          <div class="icon-box"><i class="bi bi-journal-text"></i></div>
-          <h5>Termos Gerais de Venda</h5>
-          <p class="small text-secondary">Contrato sem letras miúdas. Fidelidade de 12 meses com benefícios.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-feature">
-          <div class="icon-box"><i class="bi bi-arrow-repeat"></i></div>
-          <h5>Trocas e Devoluções</h5>
-          <p class="small text-secondary">7 dias para devolução de equipamentos. Suporte para troca rápida.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-feature">
-          <div class="icon-box"><i class="bi bi-headset"></i></div>
-          <h5>Suporte Técnico</h5>
-          <p class="small text-secondary">Atendimento local via telefone, WhatsApp e presencial na loja física.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card-feature">
-          <div class="icon-box"><i class="bi bi-speedometer2"></i></div>
-          <h5>Planos de Internet</h5>
-          <p class="small text-secondary">De 100 Mega a 1 Giga. Consulte disponibilidade para sua rua.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Blog e Loja Física -->
-<section id="blog" class="py-5 bg-white">
-  <div class="container">
-    <div class="row g-4">
       <div class="col-lg-7">
-        <h2 class="section-header">Nosso Blog</h2>
-        <div class="section-line"></div>
-        <div class="card-feature mt-3 d-flex">
-          <div class="icon-box me-3 flex-shrink-0"><i class="bi bi-wifi"></i></div>
-          <div>
-            <h5>5 dicas para melhorar o sinal Wi-Fi</h5>
-            <p class="small text-secondary">Posicionamento do roteador e configurações que fazem diferença real.</p>
-            <a href="#" class="fw-semibold text-decoration-none" style="color:#1a56db;">Ler artigo →</a>
-          </div>
-        </div>
-        <div class="card-feature mt-3 d-flex">
-          <div class="icon-box me-3 flex-shrink-0"><i class="bi bi-lightbulb"></i></div>
-          <div>
-            <h5>Fibra óptica: vale a pena?</h5>
-            <p class="small text-secondary">Comparativo de velocidade, latência e estabilidade para gamers e streamers.</p>
-            <a href="#" class="fw-semibold text-decoration-none" style="color:#1a56db;">Ler artigo →</a>
-          </div>
+        <p class="mb-2"><span class="badge bg-warning text-dark px-3 py-1">Desde 2005</span></p>
+        <h1>Comércio Atacadista de Máquinas, Equipamentos e Peças</h1>
+        <p class="lead">Soluções completas para o setor náutico e industrial. Qualidade, procedência e estoque permanente.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#contato" class="btn btn-ouro btn-lg"><i class="bi bi-chat-dots me-2"></i>Solicitar Orçamento</a>
+          <a href="#loja" class="btn btn-outline-light btn-lg"><i class="bi bi-geo-alt me-2"></i>Nossa Loja</a>
         </div>
       </div>
-      <div id="loja" class="col-lg-5">
-        <h2 class="section-header">Nossa Loja Física</h2>
-        <div class="section-line"></div>
-        <div class="card-feature h-100 d-flex flex-column justify-content-center">
-          <i class="bi bi-shop fs-1 mb-3" style="color:#f97316;"></i>
-          <h5>Atendimento Presencial</h5>
-          <p class="mb-1"><i class="bi bi-geo-alt-fill me-2"></i>Rua Lucia Breviglieri, 55</p>
-          <p class="mb-1"><i class="bi bi-building me-2"></i>Centro · Dumont/SP · 14120-000</p>
-          <p class="mb-1"><i class="bi bi-telephone me-2"></i>(16) 3844-0000</p>
-          <p class="mb-3"><i class="bi bi-clock me-2"></i>Seg-Sex 08h-18h | Sáb 08h-12h</p>
-          <span class="tag-politica"><i class="bi bi-check-circle-fill text-success me-1"></i> Loja aberta</span>
-        </div>
+      <div class="col-lg-5 text-center mt-4 mt-lg-0">
+        <i class="bi bi-gear-wide-connected icone-grande display-1"></i>
+        <div class="mt-3 fs-5 fw-light">Peças • Motores • Equipamentos</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Contato -->
-<section id="contato" class="py-5 text-white" style="background: linear-gradient(145deg, #0f2440 0%, #0a1628 100%);">
+<!-- Dados da Empresa + CNPJ rápido -->
+<section class="py-4 bg-light border-bottom">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-5 mb-4">
-        <h2 class="fw-bold mb-3">Fale com a GCG</h2>
-        <p>Estamos prontos para atender você. Solicite uma visita ou tire dúvidas.</p>
-        <hr class="border-light opacity-25">
-        <ul class="list-unstyled">
-          <li class="mb-2"><i class="bi bi-telephone-forward-fill me-2"></i> (16) 3844-0000</li>
-          <li class="mb-2"><i class="bi bi-envelope me-2"></i> contato@gcginternet.com.br</li>
-          <li><i class="bi bi-whatsapp me-2"></i> WhatsApp (16) 99999-0000</li>
-        </ul>
+    <div class="row align-items-center text-center text-md-start">
+      <div class="col-md-4 mb-2 mb-md-0">
+        <i class="bi bi-buildings me-2 text-primary"></i> <strong>CNPJ:</strong> 96.666.862/0001-27
       </div>
-      <div class="col-lg-7">
-        <div class="bg-white text-dark p-4 rounded-4 shadow">
-          <h5 class="fw-bold mb-3">Envie sua mensagem</h5>
-          <form>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Nome">
-              </div>
-              <div class="col-md-6">
-                <input type="email" class="form-control" placeholder="E-mail">
-              </div>
-              <div class="col-12">
-                <input type="text" class="form-control" placeholder="Assunto">
-              </div>
-              <div class="col-12">
-                <textarea class="form-control" rows="3" placeholder="Mensagem"></textarea>
-              </div>
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary-custom w-100"><i class="bi bi-send me-2"></i>Enviar</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer-custom">
-  <div class="container">
-    <div class="row gy-4">
-      <div class="col-md-5">
-        <h5><i class="bi bi-wifi me-2"></i>GCG Provedor de Internet</h5>
-        <p class="small">Razão Social: Gcg Provedor de Internet LTDA<br>CNPJ: 51.980.509/0001-89<br>Situação Cadastral: Ativa (28/08/2023)</p>
-        <p class="small">© 2023-2026 Todos os direitos reservados.</p>
-      </div>
-      <div class="col-md-3">
-        <h6>Links Úteis</h6>
-        <ul class="list-unstyled small">
-          <li><a href="#">Política de Privacidade</a></li>
-          <li><a href="#">Políticas de Serviço de Envios</a></li>
-          <li><a href="#">Termos e Condições Gerais de Venda</a></li>
-          <li><a href="#">Política para Trocas e Devoluções</a></li>
-        </ul>
+      <div class="col-md-4 mb-2 mb-md-0">
+        <i class="bi bi-calendar-check me-2 text-primary"></i> <strong>Abertura:</strong> 07/10/2005
       </div>
       <div class="col-md-4">
-        <h6>Institucional</h6>
-        <ul class="list-unstyled small">
-          <li><a href="#quemsomos">Quem Somos Nós</a></li>
-          <li><a href="#quemsomos">Missão Visão e Valores</a></li>
-          <li><a href="#">Eventos e Feiras</a></li>
-          <li><a href="#">Clientes satisfeitos</a></li>
-          <li><a href="#blog">Nosso Blog</a></li>
-          <li><a href="#loja">Nossa Loja Física</a></li>
-        </ul>
+        <i class="bi bi-geo-alt-fill me-2 text-primary"></i> Av. Dom Pedro II, 1369 - Jardim, Santo André/SP
       </div>
     </div>
-    <hr class="border-secondary opacity-25 mt-4">
+  </div>
+</section>
+
+<!-- Quem Somos + Missão Visão Valores -->
+<section id="quem-somos" class="py-5">
+  <div class="container">
+    <h2 class="secao-titulo"><i class="bi bi-people-fill me-2"></i>Quem Somos Nós</h2>
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <p class="fs-5">A <strong>Abc Náutica LTDA</strong> é referência no comércio atacadista de máquinas, equipamentos e partes náuticas desde 2005. Atuamos com seriedade e estoque diversificado para atender marinas, estaleiros, lojistas e indústrias em todo o Brasil.</p>
+        <p>Nossa equipe técnica está preparada para oferecer suporte na escolha das peças e equipamentos corretos, garantindo eficiência e segurança.</p>
+        <div class="card-info mt-3">
+          <i class="bi bi-shield-check fs-4 text-primary"></i>
+          <span class="ms-2 fw-semibold">Mais de 18 anos de experiência no mercado atacadista.</span>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div id="missao" class="mt-3 mt-md-0">
+          <h4 class="text-primary"><i class="bi bi-bullseye me-2"></i>Missão, Visão e Valores</h4>
+          <ul class="lista-icone mt-3">
+            <li><i class="bi bi-check-circle-fill"></i> <strong>Missão:</strong> Fornecer máquinas e peças de qualidade com agilidade e preço justo.</li>
+            <li><i class="bi bi-eye-fill"></i> <strong>Visão:</strong> Ser o distribuidor preferido no segmento náutico e industrial até 2030.</li>
+            <li><i class="bi bi-heart-fill"></i> <strong>Valores:</strong> Transparência, compromisso, inovação e respeito ao cliente.</li>
+          </ul>
+        </div>
+        <!-- Eventos e Feiras -->
+        <div class="mt-4 p-3 bg-white rounded shadow-sm border">
+          <h5><i class="bi bi-calendar-event me-2 text-warning"></i>Eventos e Feiras</h5>
+          <p class="mb-1">Participamos anualmente da <strong>Feira Náutica de São Paulo</strong> e eventos do setor. Acompanhe nosso calendário!</p>
+          <small class="text-muted">Próxima participação: Boat Show 2026 - estande 47.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Nossa Loja Física + Clientes satisfeitos -->
+<section id="loja" class="py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <h2 class="secao-titulo"><i class="bi bi-shop-window me-2"></i>Nossa Loja Física</h2>
+        <div class="mt-4 p-3 bg-white rounded shadow-sm">
+          <p><i class="bi bi-geo-alt-fill text-danger me-2"></i><strong>Endereço:</strong> Avenida Dom Pedro II, 1369 - Bairro Jardim, Santo André - SP, 09080-110</p>
+          <p><i class="bi bi-telephone-fill text-success me-2"></i><strong>Telefone:</strong> (11) 4990-7756</p>
+          <p><i class="bi bi-clock-history me-2 text-primary"></i><strong>Horário de atendimento:</strong> Seg a Sex: 8h às 18h | Sáb: 8h às 12h</p>
+          <div class="ratio ratio-16x9 mt-3">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.877695678123!2d-46.520123684406!3d-23.644444684648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce427c8b5c5b37%3A0x3a1c4c6de5b7c141!2sAv.%20Dom%20Pedro%20II%2C%201369%20-%20Jardim%2C%20Santo%20Andr%C3%A9%20-%20SP%2C%2009080-110!5e0!3m2!1spt-BR!2sbr!4v1610000000000" 
+              style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa da loja"></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 mt-4 mt-lg-0" id="clientes">
+        <h2 class="secao-titulo"><i class="bi bi-emoji-smile me-2"></i>Clientes Satisfeitos</h2>
+        <div class="card border-0 shadow-sm p-3 mt-3">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning"></i>
+          </div>
+          <blockquote class="mb-0">"Atendimento excelente e peças originais. A Abc Náutica é nossa parceira há anos."</blockquote>
+          <footer class="blockquote-footer mt-2">Marina Porto Seguro</footer>
+        </div>
+        <div class="card border-0 shadow-sm p-3 mt-3">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning"></i>
+          </div>
+          <blockquote class="mb-0">"Rapidez na entrega e suporte técnico diferenciado. Recomendo!"</blockquote>
+          <footer class="blockquote-footer mt-2">Estaleiro Costa Leste</footer>
+        </div>
+        <div class="text-center mt-3">
+          <span class="badge bg-primary fs-6 px-3 py-2">+500 clientes atacadistas atendidos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Nosso Blog (breve) -->
+<section id="blog" class="py-5">
+  <div class="container">
+    <h2 class="secao-titulo"><i class="bi bi-rss me-2"></i>Nosso Blog</h2>
+    <div class="row mt-4">
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-wrench-adjustable fs-2 text-primary mb-2"></i>
+            <h5 class="card-title">Manutenção Preventiva de Máquinas</h5>
+            <p class="card-text">Dicas essenciais para aumentar a vida útil dos equipamentos náuticos.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary">Leia mais →</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-droplet fs-2 text-primary mb-2"></i>
+            <h5 class="card-title">Novidades em Peças para Embarcações</h5>
+            <p class="card-text">Conheça os lançamentos do mercado atacadista para 2026.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary">Leia mais →</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-bar-chart-line fs-2 text-primary mb-2"></i>
+            <h5 class="card-title">Tendências do Setor Náutico</h5>
+            <p class="card-text">Análise do crescimento do mercado de equipamentos no Brasil.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary">Leia mais →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Políticas e Termos (seção combinada) -->
+<section class="py-5 bg-light" id="politicas">
+  <div class="container">
+    <h2 class="secao-titulo"><i class="bi bi-file-earmark-text me-2"></i>Políticas e Informações Legais</h2>
+    <div class="row mt-4 g-3">
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm p-3">
+          <i class="bi bi-lock-fill fs-3 text-primary"></i>
+          <h5 class="mt-2">Política de Privacidade</h5>
+          <p class="small">Protegemos seus dados conforme a LGPD. Consulte como tratamos informações pessoais.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm p-3">
+          <i class="bi bi-truck fs-3 text-primary"></i>
+          <h5 class="mt-2">Políticas de Envios</h5>
+          <p class="small">Realizamos entregas para todo o Brasil com prazos e transportadoras parceiras.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm p-3">
+          <i class="bi bi-cart-check fs-3 text-primary"></i>
+          <h5 class="mt-2">Termos de Venda</h5>
+          <p class="small">Condições gerais para pedidos no atacado, pagamento e faturamento.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm p-3">
+          <i class="bi bi-arrow-repeat fs-3 text-primary"></i>
+          <h5 class="mt-2">Trocas e Devoluções</h5>
+          <p class="small">Prazo de 7 dias para devolução e regras para troca de peças defeituosas.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm p-3">
+          <i class="bi bi-building fs-3 text-primary"></i>
+          <h5 class="mt-2">Quem Somos (CNPJ)</h5>
+          <p class="small">Abc Náutica LTDA - 96.666.862/0001-27 - Razão social completa.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm p-3">
+          <i class="bi bi-envelope-paper fs-3 text-primary"></i>
+          <h5 class="mt-2">Contrato Social</h5>
+          <p class="small">Disponível para consulta mediante solicitação oficial.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contato / Rodapé -->
+<footer class="footer" id="contato">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 mb-4">
+        <h5><i class="bi bi-life-preserver me-2"></i>Abc Náutica LTDA</h5>
+        <p>Comércio atacadista de máquinas, equipamentos não especificados e peças. Sua parceira desde 2005.</p>
+        <div class="social-icons mt-3">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+          <a href="#"><i class="bi bi-envelope-fill"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h5>Links Úteis</h5>
+        <ul class="list-unstyled">
+          <li><a href="#quem-somos" class="text-decoration-none">Quem Somos</a></li>
+          <li><a href="#politicas" class="text-decoration-none">Política de Privacidade</a></li>
+          <li><a href="#politicas" class="text-decoration-none">Termos e Condições</a></li>
+          <li><a href="#politicas" class="text-decoration-none">Trocas e Devoluções</a></li>
+          <li><a href="#blog" class="text-decoration-none">Blog</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5>Contato Direto</h5>
+        <p><i class="bi bi-telephone-fill me-2"></i> (11) 4990-7756</p>
+        <p><i class="bi bi-geo-alt-fill me-2"></i> Av. Dom Pedro II, 1369<br>Jardim, Santo André - SP</p>
+        <p><i class="bi bi-envelope me-2"></i> contato@abcnáutica.com.br</p>
+      </div>
+    </div>
+    <hr class="border-secondary">
     <div class="text-center small">
-      GCG Provedor de Internet LTDA · Rua Lucia Breviglieri, 55 · Centro · Dumont/SP · CEP 14120-000
+      © 2026 Abc Náutica LTDA | CNPJ 96.666.862/0001-27 | Todos os direitos reservados.
     </div>
   </div>
 </footer>
 
 <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
