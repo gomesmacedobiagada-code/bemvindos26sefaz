@@ -4,422 +4,312 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <title>Abc Náutica LTDA | Máquinas, Equipamentos e Peças</title>
-  <!-- Bootstrap 5 CSS + Ícones Bootstrap -->
+  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <!-- Favicon dinâmico (ícone de âncora/nautico) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%230d6efd' class='bi bi-gear-wide-connected' viewBox='0 0 16 16'%3E%3Cpath d='M7.068.727c.243-.97 1.62-.97 1.864 0l.071.286a.96.96 0 0 0 1.622.434l.205-.211c.695-.719 1.888-.03 1.613.931l-.08.284a.96.96 0 0 0 1.187 1.187l.283-.081c.96-.275 1.65.918.931 1.613l-.211.205a.96.96 0 0 0 .434 1.622l.286.071c.97.243.97 1.62 0 1.864l-.286.071a.96.96 0 0 0-.434 1.622l.211.205c.719.695.03 1.888-.931 1.613l-.284-.08a.96.96 0 0 0-1.187 1.187l.081.283c.275.96-.918 1.65-1.613.931l-.205-.211a.96.96 0 0 0-1.622.434l-.071.286c-.243.97-1.62.97-1.864 0l-.071-.286a.96.96 0 0 0-1.622-.434l-.205.211c-.695.719-1.888.03-1.613-.931l.08-.284a.96.96 0 0 0-1.186-1.187l-.284.081c-.96.275-1.65-.918-.931-1.613l.211-.205a.96.96 0 0 0-.434-1.622l-.286-.071c-.97-.243-.97-1.62 0-1.864l.286-.071a.96.96 0 0 0 .434-1.622l-.211-.205c-.719-.695-.03-1.888.931-1.613l.284.08a.96.96 0 0 0 1.187-1.186l-.081-.284c-.275-.96.918-1.65 1.613-.931l.205.211a.96.96 0 0 0 1.622-.434zM12.973 8.5H8.25l-2.834 3.779A4.998 4.998 0 0 0 12.973 8.5zm0-1a4.998 4.998 0 0 0-7.557-3.779L8.25 7.5h4.723zM5.048 3.967c-.03.021-.058.043-.087.065l.087-.065zm-.431.355A4.995 4.995 0 0 0 3.002 8.5c0 1.336.524 2.551 1.382 3.449l.233-.175C3.955 10.836 3.5 9.717 3.5 8.5c0-1.045.347-2.01.932-2.786zm.878 7.15.233.174A4.995 4.995 0 0 0 8.5 13c1.045 0 2.01-.347 2.786-.932l-.174-.233C10.322 12.347 9.455 12.5 8.5 12.5c-.817 0-1.59-.19-2.278-.528z'/%3E%3C/svg%3E">
+  <!-- Favicon criado via emoji SVG (âncora náutica) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚓</text></svg>">
   <style>
-    :root {
-      --cor-primaria: #0A3A5C; /* Azul marinho profundo */
-      --cor-secundaria: #D4A843; /* Dourado náutico */
-      --cor-destaque: #F8F9FA;
-      --cor-texto: #212529;
-      --cor-footer: #051F33;
-      scroll-behavior: smooth;
-    }
     body {
-      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
-      color: var(--cor-texto);
-      background-color: #ffffff;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: #f4f7fa;
+      color: #1e2b3c;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
-    /* Navbar personalizada */
-    .navbar-brand {
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: var(--cor-primaria) !important;
-    }
-    .navbar-light .navbar-nav .nav-link {
-      color: var(--cor-primaria);
-      font-weight: 500;
-      transition: 0.2s;
-    }
-    .navbar-light .navbar-nav .nav-link:hover {
-      color: var(--cor-secundaria);
-    }
-    .btn-ouro {
-      background-color: var(--cor-secundaria);
-      border: none;
-      color: #000;
-      font-weight: 600;
-      padding: 0.5rem 1.8rem;
-      border-radius: 30px;
-      transition: all 0.3s;
-    }
-    .btn-ouro:hover {
-      background-color: #b58a2c;
-      color: #000;
+    .navbar-custom {
+      background: linear-gradient(135deg, #0a2f44 0%, #1b4a6b 100%);
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    .btn-azul {
-      background-color: var(--cor-primaria);
-      border: none;
-      color: white;
-      font-weight: 600;
-      padding: 0.6rem 2rem;
-      border-radius: 30px;
-    }
-    .btn-azul:hover {
-      background-color: #0b4b73;
-      color: white;
-    }
-    /* Hero section */
-    .hero {
-      background: linear-gradient(135deg, #0A3A5C 0%, #0d4f7c 100%);
-      color: white;
-      padding: 4rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero h1 {
-      font-weight: 800;
-      font-size: 2.8rem;
-    }
-    .hero .lead {
-      font-size: 1.2rem;
-      color: rgba(255,255,255,0.9);
-    }
-    .icone-grande {
-      font-size: 3.5rem;
-      color: var(--cor-secundaria);
-    }
-    /* Seções */
-    .secao-titulo {
+    .navbar-brand {
       font-weight: 700;
-      color: var(--cor-primaria);
+      font-size: 1.6rem;
+      letter-spacing: 0.5px;
+      color: #f0f9ff !important;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .navbar-brand i {
+      font-size: 2rem;
+      color: #7fc9ff;
+    }
+    .hero-section {
+      background: linear-gradient(rgba(0,40,70,0.75), rgba(0,55,85,0.8)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 3rem 1rem;
       margin-bottom: 2rem;
-      position: relative;
-      display: inline-block;
     }
-    .secao-titulo:after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 60px;
-      height: 4px;
-      background-color: var(--cor-secundaria);
-      border-radius: 2px;
-    }
-    .card-info {
-      border-left: 4px solid var(--cor-secundaria);
-      background-color: #f0f6fb;
-      border-radius: 8px;
-      padding: 1.2rem;
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
       margin-bottom: 1rem;
     }
-    .footer {
-      background-color: var(--cor-footer);
-      color: #ccc;
-      padding: 3rem 0 1.5rem;
+    .hero-content .lead {
+      font-size: 1.4rem;
+      font-weight: 300;
+      max-width: 700px;
+      margin: 0 auto 2rem;
     }
-    .footer h5 {
-      color: white;
-      font-weight: 600;
-      margin-bottom: 1.2rem;
+    .icon-badge {
+      font-size: 2.5rem;
+      color: #ffcd39;
+      margin-bottom: 1rem;
     }
-    .footer a {
-      color: #bbb;
+    .card-custom {
+      border: none;
+      border-radius: 1rem;
+      background: white;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s;
+      height: 100%;
+    }
+    .card-custom:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 30px rgba(0,70,100,0.15);
+    }
+    .info-card {
+      background: #ffffff;
+      border-left: 5px solid #0a2f44;
+      border-radius: 12px;
+      padding: 1.8rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+    .contact-box {
+      background: #e9f2fa;
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .footer-custom {
+      background: #0a2f44;
+      color: #ccdbe9;
+      padding: 2.5rem 0 1.5rem;
+      margin-top: auto;
+    }
+    .footer-custom a {
+      color: #b8d8f0;
       text-decoration: none;
       transition: 0.2s;
     }
-    .footer a:hover {
-      color: var(--cor-secundaria);
+    .footer-custom a:hover {
+      color: #ffffff;
       text-decoration: underline;
     }
-    .social-icons i {
-      font-size: 1.6rem;
-      margin-right: 15px;
-      color: #aaa;
-      transition: 0.2s;
+    .policy-section i {
+      font-size: 2.2rem;
+      color: #0d4b6e;
+      margin-bottom: 10px;
     }
-    .social-icons i:hover {
-      color: var(--cor-secundaria);
-      transform: scale(1.1);
+    .btn-outline-light-custom {
+      border: 1px solid rgba(255,255,255,0.7);
+      color: white;
+      background: transparent;
     }
-    .lista-icone li {
-      list-style: none;
-      margin-bottom: 0.6rem;
+    .btn-outline-light-custom:hover {
+      background: rgba(255,255,255,0.15);
+      color: white;
     }
-    .lista-icone i {
-      color: var(--cor-secundaria);
-      margin-right: 8px;
-    }
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
+    .address-highlight {
+      font-size: 1.1rem;
+      font-weight: 500;
+      background: #f0f6fd;
+      border-radius: 10px;
+      padding: 1rem;
     }
   </style>
 </head>
 <body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <i class="bi bi-life-preserver me-2" style="font-size: 2rem; color: var(--cor-secundaria);"></i>
-      <span>Abc Náutica</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarConteudo" 
-            aria-controls="navbarConteudo" aria-expanded="false" aria-label="Alternar navegação">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarConteudo">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-        <li class="nav-item"><a class="nav-link" href="#quem-somos">Quem Somos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#missao">Missão/Visão</a></li>
-        <li class="nav-item"><a class="nav-link" href="#loja">Loja Física</a></li>
-        <li class="nav-item"><a class="nav-link" href="#clientes">Clientes</a></li>
-        <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-        <li class="nav-item ms-2">
-          <a href="tel:1149907756" class="btn btn-ouro"><i class="bi bi-telephone-fill me-1"></i> (11) 4990-7756</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- Hero Principal -->
-<section class="hero">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-7">
-        <p class="mb-2"><span class="badge bg-warning text-dark px-3 py-1">Desde 2005</span></p>
-        <h1>Comércio Atacadista de Máquinas, Equipamentos e Peças</h1>
-        <p class="lead">Soluções completas para o setor náutico e industrial. Qualidade, procedência e estoque permanente.</p>
-        <div class="d-flex flex-wrap gap-3 mt-4">
-          <a href="#contato" class="btn btn-ouro btn-lg"><i class="bi bi-chat-dots me-2"></i>Solicitar Orçamento</a>
-          <a href="#loja" class="btn btn-outline-light btn-lg"><i class="bi bi-geo-alt me-2"></i>Nossa Loja</a>
-        </div>
-      </div>
-      <div class="col-lg-5 text-center mt-4 mt-lg-0">
-        <i class="bi bi-gear-wide-connected icone-grande display-1"></i>
-        <div class="mt-3 fs-5 fw-light">Peças • Motores • Equipamentos</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Dados da Empresa + CNPJ rápido -->
-<section class="py-4 bg-light border-bottom">
-  <div class="container">
-    <div class="row align-items-center text-center text-md-start">
-      <div class="col-md-4 mb-2 mb-md-0">
-        <i class="bi bi-buildings me-2 text-primary"></i> <strong>CNPJ:</strong> 96.666.862/0001-27
-      </div>
-      <div class="col-md-4 mb-2 mb-md-0">
-        <i class="bi bi-calendar-check me-2 text-primary"></i> <strong>Abertura:</strong> 07/10/2005
-      </div>
-      <div class="col-md-4">
-        <i class="bi bi-geo-alt-fill me-2 text-primary"></i> Av. Dom Pedro II, 1369 - Jardim, Santo André/SP
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Quem Somos + Missão Visão Valores -->
-<section id="quem-somos" class="py-5">
-  <div class="container">
-    <h2 class="secao-titulo"><i class="bi bi-people-fill me-2"></i>Quem Somos Nós</h2>
-    <div class="row mt-4">
-      <div class="col-md-6">
-        <p class="fs-5">A <strong>Abc Náutica LTDA</strong> é referência no comércio atacadista de máquinas, equipamentos e partes náuticas desde 2005. Atuamos com seriedade e estoque diversificado para atender marinas, estaleiros, lojistas e indústrias em todo o Brasil.</p>
-        <p>Nossa equipe técnica está preparada para oferecer suporte na escolha das peças e equipamentos corretos, garantindo eficiência e segurança.</p>
-        <div class="card-info mt-3">
-          <i class="bi bi-shield-check fs-4 text-primary"></i>
-          <span class="ms-2 fw-semibold">Mais de 18 anos de experiência no mercado atacadista.</span>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div id="missao" class="mt-3 mt-md-0">
-          <h4 class="text-primary"><i class="bi bi-bullseye me-2"></i>Missão, Visão e Valores</h4>
-          <ul class="lista-icone mt-3">
-            <li><i class="bi bi-check-circle-fill"></i> <strong>Missão:</strong> Fornecer máquinas e peças de qualidade com agilidade e preço justo.</li>
-            <li><i class="bi bi-eye-fill"></i> <strong>Visão:</strong> Ser o distribuidor preferido no segmento náutico e industrial até 2030.</li>
-            <li><i class="bi bi-heart-fill"></i> <strong>Valores:</strong> Transparência, compromisso, inovação e respeito ao cliente.</li>
-          </ul>
-        </div>
-        <!-- Eventos e Feiras -->
-        <div class="mt-4 p-3 bg-white rounded shadow-sm border">
-          <h5><i class="bi bi-calendar-event me-2 text-warning"></i>Eventos e Feiras</h5>
-          <p class="mb-1">Participamos anualmente da <strong>Feira Náutica de São Paulo</strong> e eventos do setor. Acompanhe nosso calendário!</p>
-          <small class="text-muted">Próxima participação: Boat Show 2026 - estande 47.</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Nossa Loja Física + Clientes satisfeitos -->
-<section id="loja" class="py-5 bg-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-7">
-        <h2 class="secao-titulo"><i class="bi bi-shop-window me-2"></i>Nossa Loja Física</h2>
-        <div class="mt-4 p-3 bg-white rounded shadow-sm">
-          <p><i class="bi bi-geo-alt-fill text-danger me-2"></i><strong>Endereço:</strong> Avenida Dom Pedro II, 1369 - Bairro Jardim, Santo André - SP, 09080-110</p>
-          <p><i class="bi bi-telephone-fill text-success me-2"></i><strong>Telefone:</strong> (11) 4990-7756</p>
-          <p><i class="bi bi-clock-history me-2 text-primary"></i><strong>Horário de atendimento:</strong> Seg a Sex: 8h às 18h | Sáb: 8h às 12h</p>
-          <div class="ratio ratio-16x9 mt-3">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.877695678123!2d-46.520123684406!3d-23.644444684648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce427c8b5c5b37%3A0x3a1c4c6de5b7c141!2sAv.%20Dom%20Pedro%20II%2C%201369%20-%20Jardim%2C%20Santo%20Andr%C3%A9%20-%20SP%2C%2009080-110!5e0!3m2!1spt-BR!2sbr!4v1610000000000" 
-              style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa da loja"></iframe>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-5 mt-4 mt-lg-0" id="clientes">
-        <h2 class="secao-titulo"><i class="bi bi-emoji-smile me-2"></i>Clientes Satisfeitos</h2>
-        <div class="card border-0 shadow-sm p-3 mt-3">
-          <div class="d-flex align-items-center mb-3">
-            <i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning"></i>
-          </div>
-          <blockquote class="mb-0">"Atendimento excelente e peças originais. A Abc Náutica é nossa parceira há anos."</blockquote>
-          <footer class="blockquote-footer mt-2">Marina Porto Seguro</footer>
-        </div>
-        <div class="card border-0 shadow-sm p-3 mt-3">
-          <div class="d-flex align-items-center mb-3">
-            <i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning me-1"></i><i class="bi bi-star-fill text-warning"></i>
-          </div>
-          <blockquote class="mb-0">"Rapidez na entrega e suporte técnico diferenciado. Recomendo!"</blockquote>
-          <footer class="blockquote-footer mt-2">Estaleiro Costa Leste</footer>
-        </div>
-        <div class="text-center mt-3">
-          <span class="badge bg-primary fs-6 px-3 py-2">+500 clientes atacadistas atendidos</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Nosso Blog (breve) -->
-<section id="blog" class="py-5">
-  <div class="container">
-    <h2 class="secao-titulo"><i class="bi bi-rss me-2"></i>Nosso Blog</h2>
-    <div class="row mt-4">
-      <div class="col-md-4 mb-3">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <i class="bi bi-wrench-adjustable fs-2 text-primary mb-2"></i>
-            <h5 class="card-title">Manutenção Preventiva de Máquinas</h5>
-            <p class="card-text">Dicas essenciais para aumentar a vida útil dos equipamentos náuticos.</p>
-            <a href="#" class="btn btn-sm btn-outline-primary">Leia mais →</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <i class="bi bi-droplet fs-2 text-primary mb-2"></i>
-            <h5 class="card-title">Novidades em Peças para Embarcações</h5>
-            <p class="card-text">Conheça os lançamentos do mercado atacadista para 2026.</p>
-            <a href="#" class="btn btn-sm btn-outline-primary">Leia mais →</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <i class="bi bi-bar-chart-line fs-2 text-primary mb-2"></i>
-            <h5 class="card-title">Tendências do Setor Náutico</h5>
-            <p class="card-text">Análise do crescimento do mercado de equipamentos no Brasil.</p>
-            <a href="#" class="btn btn-sm btn-outline-primary">Leia mais →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Políticas e Termos (seção combinada) -->
-<section class="py-5 bg-light" id="politicas">
-  <div class="container">
-    <h2 class="secao-titulo"><i class="bi bi-file-earmark-text me-2"></i>Políticas e Informações Legais</h2>
-    <div class="row mt-4 g-3">
-      <div class="col-md-4">
-        <div class="card h-100 border-0 shadow-sm p-3">
-          <i class="bi bi-lock-fill fs-3 text-primary"></i>
-          <h5 class="mt-2">Política de Privacidade</h5>
-          <p class="small">Protegemos seus dados conforme a LGPD. Consulte como tratamos informações pessoais.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 border-0 shadow-sm p-3">
-          <i class="bi bi-truck fs-3 text-primary"></i>
-          <h5 class="mt-2">Políticas de Envios</h5>
-          <p class="small">Realizamos entregas para todo o Brasil com prazos e transportadoras parceiras.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 border-0 shadow-sm p-3">
-          <i class="bi bi-cart-check fs-3 text-primary"></i>
-          <h5 class="mt-2">Termos de Venda</h5>
-          <p class="small">Condições gerais para pedidos no atacado, pagamento e faturamento.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 border-0 shadow-sm p-3">
-          <i class="bi bi-arrow-repeat fs-3 text-primary"></i>
-          <h5 class="mt-2">Trocas e Devoluções</h5>
-          <p class="small">Prazo de 7 dias para devolução e regras para troca de peças defeituosas.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 border-0 shadow-sm p-3">
-          <i class="bi bi-building fs-3 text-primary"></i>
-          <h5 class="mt-2">Quem Somos (CNPJ)</h5>
-          <p class="small">Abc Náutica LTDA - 96.666.862/0001-27 - Razão social completa.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 border-0 shadow-sm p-3">
-          <i class="bi bi-envelope-paper fs-3 text-primary"></i>
-          <h5 class="mt-2">Contrato Social</h5>
-          <p class="small">Disponível para consulta mediante solicitação oficial.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contato / Rodapé -->
-<footer class="footer" id="contato">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-5 mb-4">
-        <h5><i class="bi bi-life-preserver me-2"></i>Abc Náutica LTDA</h5>
-        <p>Comércio atacadista de máquinas, equipamentos não especificados e peças. Sua parceira desde 2005.</p>
-        <div class="social-icons mt-3">
-          <a href="#"><i class="bi bi-instagram"></i></a>
-          <a href="#"><i class="bi bi-facebook"></i></a>
-          <a href="#"><i class="bi bi-whatsapp"></i></a>
-          <a href="#"><i class="bi bi-envelope-fill"></i></a>
-        </div>
-      </div>
-      <div class="col-md-4 mb-4">
-        <h5>Links Úteis</h5>
-        <ul class="list-unstyled">
-          <li><a href="#quem-somos" class="text-decoration-none">Quem Somos</a></li>
-          <li><a href="#politicas" class="text-decoration-none">Política de Privacidade</a></li>
-          <li><a href="#politicas" class="text-decoration-none">Termos e Condições</a></li>
-          <li><a href="#politicas" class="text-decoration-none">Trocas e Devoluções</a></li>
-          <li><a href="#blog" class="text-decoration-none">Blog</a></li>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-life-preserver"></i> Abc Náutica
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home"><i class="bi bi-house-door"></i> Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre"><i class="bi bi-info-circle"></i> Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#politicas"><i class="bi bi-shield-check"></i> Políticas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato"><i class="bi bi-telephone"></i> Contato</a></li>
         </ul>
       </div>
-      <div class="col-md-3 mb-4">
-        <h5>Contato Direto</h5>
-        <p><i class="bi bi-telephone-fill me-2"></i> (11) 4990-7756</p>
-        <p><i class="bi bi-geo-alt-fill me-2"></i> Av. Dom Pedro II, 1369<br>Jardim, Santo André - SP</p>
-        <p><i class="bi bi-envelope me-2"></i> contato@abcnáutica.com.br</p>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-content container">
+      <i class="bi bi-gear-wide-connected display-3 mb-3" style="color:#a5d8ff;"></i>
+      <h1>Comércio Atacadista de Máquinas & Equipamentos</h1>
+      <p class="lead">Peças, componentes e soluções náuticas e industriais. Desde 2005 fornecendo qualidade e confiança.</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="#contato" class="btn btn-light btn-lg px-4 py-2 fw-semibold"><i class="bi bi-chat-dots"></i> Fale Conosco</a>
+        <a href="#politicas" class="btn btn-outline-light-custom btn-lg px-4 py-2"><i class="bi bi-file-text"></i> Nossas Políticas</a>
       </div>
     </div>
-    <hr class="border-secondary">
-    <div class="text-center small">
-      © 2026 Abc Náutica LTDA | CNPJ 96.666.862/0001-27 | Todos os direitos reservados.
+  </section>
+
+  <!-- Dados da empresa e ícones principais -->
+  <div class="container mb-5" id="sobre">
+    <div class="row g-4 align-items-stretch">
+      <div class="col-md-6">
+        <div class="info-card h-100">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-buildings fs-1 me-3" style="color:#0a2f44;"></i>
+            <h2 class="h4 mb-0 fw-bold">Abc Náutica LTDA</h2>
+          </div>
+          <p class="text-muted"><i class="bi bi-calendar-check"></i> <strong>Data Situação Cadastral:</strong> 07/10/2005</p>
+          <p class="mb-2"><strong>CNPJ:</strong> 96.666.862/0001-27</p>
+          <p class="mb-2"><strong>Razão Social:</strong> Abc Nautica LTDA</p>
+          <p class="mb-2"><strong>Nome Fantasia:</strong> Abc Nautica LTDA</p>
+          <div class="address-highlight mt-3">
+            <i class="bi bi-geo-alt-fill me-2" style="color:#d9534f;"></i> 
+            Avenida Dom Pedro II, 1369 - Bairro Jardim<br>
+            Santo André - SP, 09080-110
+          </div>
+          <div class="mt-3">
+            <span class="badge bg-primary fs-6"><i class="bi bi-telephone"></i> (11) 4990-7756</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card-custom p-4 d-flex flex-column justify-content-center text-center h-100">
+          <i class="bi bi-tools display-3 text-primary mb-3"></i>
+          <h3 class="h5">Máquinas e Equipamentos</h3>
+          <p class="text-secondary">Comércio atacadista especializado em outras máquinas e equipamentos não especificados, além de partes e peças para o setor náutico e industrial.</p>
+          <div class="row mt-3">
+            <div class="col-4"><i class="bi bi-droplet fs-2 text-info"></i><br><small>Peças</small></div>
+            <div class="col-4"><i class="bi bi-fan fs-2 text-info"></i><br><small>Motores</small></div>
+            <div class="col-4"><i class="bi bi-wrench-adjustable fs-2 text-info"></i><br><small>Equip.</small></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</footer>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Seção de ícones e frases -->
+  <div class="container mb-5">
+    <div class="row text-center g-4">
+      <div class="col-md-4">
+        <div class="card-custom p-4">
+          <i class="bi bi-shield-check icon-badge"></i>
+          <h4 class="fw-bold">Qualidade Garantida</h4>
+          <p class="text-muted">Trabalhamos com fornecedores certificados e peças de alto padrão para máxima durabilidade.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-custom p-4">
+          <i class="bi bi-speedometer2 icon-badge"></i>
+          <h4 class="fw-bold">Agilidade no Atacado</h4>
+          <p class="text-muted">Estoque robusto para entregas rápidas e atendimento a demandas de grande volume.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-custom p-4">
+          <i class="bi bi-water icon-badge"></i>
+          <h4 class="fw-bold">Vocação Náutica</h4>
+          <p class="text-muted">Expertise em equipamentos náuticos, máquinas e componentes para embarcações.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Políticas -->
+  <div class="container mb-5" id="politicas">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold"><i class="bi bi-journal-text me-2"></i>Nossas Políticas</h2>
+      <p class="text-secondary">Compromisso e transparência com você</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card-custom p-4 text-center">
+          <i class="bi bi-shield-lock policy-section"></i>
+          <h5 class="fw-bold">Política de Privacidade</h5>
+          <p class="small text-muted">Protegemos seus dados com rigor. Informações coletadas são utilizadas apenas para fins comerciais legítimos, sem compartilhamento indevido.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-custom p-4 text-center">
+          <i class="bi bi-box-seam policy-section"></i>
+          <h5 class="fw-bold">Política de Envio</h5>
+          <p class="small text-muted">Enviamos para todo Brasil com prazos transparentes. Embalagem reforçada para peças e equipamentos. Consulte condições.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-custom p-4 text-center">
+          <i class="bi bi-arrow-repeat policy-section"></i>
+          <h5 class="fw-bold">Trocas e Devoluções</h5>
+          <p class="small text-muted">Garantia de procedência. Caso necessário, aceitamos devolução conforme código do consumidor. Entre em contato em até 7 dias.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contato e frase de fechamento -->
+  <div class="container mb-5" id="contato">
+    <div class="contact-box text-center">
+      <i class="bi bi-envelope-paper display-5 text-primary mb-2"></i>
+      <h2 class="fw-bold">Entre em contato</h2>
+      <p class="lead mb-3">Solicite um orçamento ou tire dúvidas sobre nossas máquinas e peças.</p>
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+          <ul class="list-unstyled fs-5">
+            <li class="mb-2"><i class="bi bi-telephone-fill me-2 text-success"></i> <strong>(11) 4990-7756</strong></li>
+            <li class="mb-2"><i class="bi bi-geo-alt-fill me-2 text-danger"></i> Av. Dom Pedro II, 1369 - Jardim, Santo André/SP</li>
+            <li><i class="bi bi-envelope me-2 text-primary"></i> contato@abcnáutica.com.br</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-4">
+        <span class="badge bg-secondary fs-6 p-2"><i class="bi bi-clock"></i> Atendimento: Seg a Sex 08h-18h</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="footer-custom">
+    <div class="container text-center text-md-start">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5 class="text-uppercase fw-bold"><i class="bi bi-life-preserver"></i> Abc Náutica LTDA</h5>
+          <p class="small">Comércio atacadista de máquinas, equipamentos, partes e peças. Desde 2005.</p>
+          <p class="small">CNPJ: 96.666.862/0001-27</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5 class="fw-bold">Links Rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="#home" class="text-decoration-none">Início</a></li>
+            <li><a href="#politicas" class="text-decoration-none">Políticas de Privacidade</a></li>
+            <li><a href="#" class="text-decoration-none">Política de Envio</a></li>
+            <li><a href="#" class="text-decoration-none">Trocas e Devoluções</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5 class="fw-bold">Contato</h5>
+          <p class="mb-1"><i class="bi bi-telephone"></i> (11) 4990-7756</p>
+          <p class="mb-1"><i class="bi bi-geo-alt"></i> Santo André - SP</p>
+          <p><i class="bi bi-globe2"></i> www.abcnáutica.com.br</p>
+        </div>
+      </div>
+      <hr class="border-secondary">
+      <div class="text-center small">
+        <span>© 2025 Abc Náutica LTDA. Todos os direitos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
