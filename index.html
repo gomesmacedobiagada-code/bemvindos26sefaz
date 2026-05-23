@@ -1,488 +1,239 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>ABC Náutica | Máquinas e Equipamentos Industriais</title>
-  <!-- Bootstrap 5 + Icons + Favicon -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons (ícones modernos) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <!-- Google Fonts (opcional, para refinamento) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <!-- Favicon gerado inline (base64 SVG para atender ao pedido de favicon na index) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A2F6C'/%3E%3Cpath d='M30,70 L50,30 L70,70 L55,70 L50,55 L45,70 Z' fill='%23F7B32B' stroke='%23FFFFFF' stroke-width='2'/%3E%3Ccircle cx='50' cy='45' r='5' fill='%23FFFFFF'/%3E%3Ctext x='50' y='88' font-size='18' text-anchor='middle' fill='%23FFFFFF' font-weight='bold'%3EABC%3C/text%3E%3C/svg%3E">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mais por você — Atendimento via WhatsApp</title>
+<meta name="description" content="Acesse os principais serviços e fale com a gente direto pelo WhatsApp." />
+<style>
+  :root{
+    --primary:#1e8c4a;
+    --primary-dark:#146634;
+    --whatsapp:#25D366;
+    --accent:#ef7d1a;
+    --bg:#ffffff;
+    --text:#1f2937;
+    --muted:#6b7280;
+    --border:#e5e7eb;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .container{max-width:1200px;margin:0 auto;padding:0 24px;}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f8fafc;
-      color: #0f172a;
-      scroll-behavior: smooth;
-    }
+  /* Header */
+  .topbar{background:var(--primary);color:#fff;}
+  .topbar-inner{display:flex;justify-content:space-between;align-items:center;padding:12px 24px;max-width:1200px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;}
+  .btn-login{background:#111;color:#fff;padding:6px 16px;border-radius:6px;font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:6px;}
+  .btn-login:hover{background:#000;}
 
-    /* Cores temáticas: marítimo/industrial + toque náutico */
-    :root {
-      --primary-blue: #0A2F6C;
-      --secondary-gold: #D4AF37;
-      --accent-orange: #E67E22;
-      --light-bg: #f1f5f9;
-      --dark-text: #0a2540;
-    }
+  /* Nav */
+  nav{border-bottom:1px solid var(--border);background:#fff;}
+  .nav-inner{display:flex;gap:32px;padding:14px 24px;max-width:1200px;margin:0 auto;font-weight:600;color:var(--primary);font-size:14px;overflow-x:auto;}
+  .nav-inner a{white-space:nowrap;}
+  .nav-inner a:hover{opacity:.75;}
 
-    .bg-primary-custom {
-      background-color: var(--primary-blue);
-    }
+  /* Hero */
+  .hero{position:relative;border-radius:14px;overflow:hidden;background:var(--primary);margin-top:32px;display:grid;grid-template-columns:1.6fr 1fr;}
+  .hero-img{position:relative;min-height:280px;}
+  .hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .hero-overlay{position:absolute;inset:0;display:flex;align-items:center;padding:0 48px;background:linear-gradient(to right,var(--primary) 0%,rgba(30,140,74,.5) 50%,transparent 100%);}
+  .hero-overlay h1{color:#fff;font-size:44px;font-weight:700;}
+  .hero-card{background:#fff;margin:32px;padding:24px;border-radius:10px;box-shadow:0 10px 25px rgba(0,0,0,.1);}
+  .hero-card h2{font-size:20px;margin-bottom:8px;}
+  .hero-card p{color:var(--muted);font-size:14px;margin-bottom:16px;}
+  .btn-wa{display:inline-flex;width:100%;align-items:center;justify-content:center;gap:8px;background:var(--whatsapp);color:#fff;padding:12px 20px;border-radius:8px;font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.5px;transition:opacity .2s;}
+  .btn-wa:hover{opacity:.9;}
+  .hero-card .helper{text-align:center;color:var(--muted);font-size:14px;margin:16px 0 8px;}
 
-    .text-gold {
-      color: var(--secondary-gold);
-    }
+  /* Sections */
+  .section{margin-top:48px;}
+  .section h2{color:var(--primary);font-size:20px;margin-bottom:20px;}
 
-    .btn-outline-gold {
-      border: 2px solid var(--secondary-gold);
-      color: var(--secondary-gold);
-      transition: 0.3s;
-    }
+  /* Quick services */
+  .grid-services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .service{display:flex;flex-direction:column;padding:20px;border:1px solid var(--border);border-radius:10px;background:#fff;transition:transform .2s,box-shadow .2s;}
+  .service:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(0,0,0,.08);}
+  .service.featured{background:var(--accent);border-color:transparent;color:#fff;}
+  .service-icon{margin-bottom:12px;color:var(--primary);}
+  .service.featured .service-icon{color:#fff;}
+  .service h3{font-size:14px;font-weight:700;margin-bottom:8px;}
+  .service p{font-size:12px;color:var(--muted);}
+  .service.featured p{color:rgba(255,255,255,.9);}
+  .service-cta{margin-top:16px;font-size:11px;font-weight:700;text-transform:uppercase;color:var(--whatsapp);display:inline-flex;align-items:center;gap:6px;}
+  .service.featured .service-cta{color:#fff;}
 
-    .btn-outline-gold:hover {
-      background-color: var(--secondary-gold);
-      color: var(--primary-blue);
-      border-color: var(--secondary-gold);
-    }
+  /* Highlights */
+  .grid-highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+  .card img{width:100%;height:200px;object-fit:cover;}
+  .card-body{padding:20px;}
+  .card-body h3{color:var(--primary);font-size:16px;font-weight:700;margin-bottom:8px;}
+  .card-body p{color:var(--muted);font-size:14px;margin-bottom:16px;}
+  .card-body .link{color:var(--whatsapp);font-weight:600;}
+  .btn-card{display:inline-flex;align-items:center;gap:8px;background:var(--whatsapp);color:#fff;padding:8px 16px;border-radius:6px;font-size:12px;font-weight:700;text-transform:uppercase;}
+  .btn-card:hover{opacity:.9;}
 
-    .btn-primary-custom {
-      background-color: var(--primary-blue);
-      border: none;
-      color: white;
-      transition: 0.3s;
-    }
+  /* Footer */
+  footer{margin-top:64px;background:#f3f4f6;padding:32px 0;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--border);}
 
-    .btn-primary-custom:hover {
-      background-color: #0b3b7a;
-      transform: translateY(-2px);
-    }
+  /* Floating WA */
+  .float-wa{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:var(--whatsapp);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.2);transition:transform .2s;z-index:50;}
+  .float-wa:hover{transform:scale(1.1);}
 
-    .navbar-custom {
-      background-color: var(--primary-blue);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .hero-section {
-      background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
-      padding: 4rem 0;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .card-icon {
-      font-size: 2.8rem;
-      color: var(--primary-blue);
-      margin-bottom: 1rem;
-    }
-
-    .info-card {
-      background: white;
-      border-radius: 24px;
-      transition: all 0.25s ease;
-      border: none;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-      height: 100%;
-    }
-
-    .info-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
-    }
-
-    .section-title {
-      font-weight: 700;
-      position: relative;
-      display: inline-block;
-      margin-bottom: 2rem;
-      letter-spacing: -0.3px;
-    }
-
-    .section-title:after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 4px;
-      background: var(--secondary-gold);
-      margin-top: 10px;
-      border-radius: 2px;
-    }
-
-    .footer {
-      background-color: #0b2b4f;
-      color: #e2e8f0;
-    }
-
-    .footer a {
-      text-decoration: none;
-      color: #cbd5e1;
-      transition: 0.2s;
-    }
-
-    .footer a:hover {
-      color: var(--secondary-gold);
-    }
-
-    .contact-info i {
-      width: 32px;
-      font-size: 1.3rem;
-      color: var(--secondary-gold);
-    }
-
-    .policy-link {
-      cursor: pointer;
-      transition: all 0.2s;
-      border-left: 3px solid transparent;
-    }
-
-    .policy-link:hover {
-      border-left-color: var(--secondary-gold);
-      padding-left: 6px;
-      color: var(--primary-blue);
-    }
-
-    /* detalhe de máquinas */
-    .badge-industry {
-      background-color: #e9ecef;
-      color: var(--primary-blue);
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 40px;
-    }
-  </style>
+  /* Responsive */
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;}
+    .hero-overlay h1{font-size:32px;}
+    .hero-card{margin:20px;}
+    .grid-services{grid-template-columns:repeat(2,1fr);}
+    .grid-highlights{grid-template-columns:1fr;}
+  }
+  @media(max-width:520px){
+    .grid-services{grid-template-columns:1fr;}
+    .hero-overlay{padding:0 24px;}
+  }
+</style>
 </head>
 <body>
 
-<!-- Navbar / Header -->
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top py-2">
-  <div class="container">
-    <a class="navbar-brand fw-bold fs-4" href="#">
-      <i class="bi bi-anchor me-2"></i>ABC Náutica
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarMain">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
-        <li class="nav-item"><a class="nav-link active" href="#home">Início</a></li>
-        <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-        <li class="nav-item"><a class="nav-link" href="#politicas">Políticas</a></li>
-      </ul>
+<!-- Top bar -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 4 4 6 4 10a4 4 0 1 1-8 0c0-2 1-3 2-4-1 3 2 4 2 6 0-3 3-4 0-12Z"/></svg>
+      Energia+
     </div>
+    <a class="btn-login" href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener">Login →</a>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <a href="#">Início</a>
+    <a href="#">Para Você ▾</a>
+    <a href="#">Para a Unidade Consumidora ▾</a>
+    <a href="#">Fale Conosco ▾</a>
+    <a href="#">Mais Serviços ▾</a>
   </div>
 </nav>
 
-<!-- Hero Section -->
-<section id="home" class="hero-section">
-  <div class="container">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-7">
-        <span class="badge-industry d-inline-block mb-3"><i class="bi bi-gear-wide-connected me-1"></i> Atacado industrial • Máquinas e peças</span>
-        <h1 class="display-5 fw-bold" style="color: #0A2F6C;">Fornecemos soluções completas em <span class="text-gold">máquinas industriais</span> e equipamentos</h1>
-        <p class="lead mt-3 mb-4">Há mais de 18 anos no mercado atacadista, oferecendo partes, peças e máquinas de alta performance para os mais diversos setores. Excelência em Santo André e para todo o Brasil.</p>
-        <div class="d-flex flex-wrap gap-3">
-          <a href="#contato" class="btn btn-primary-custom px-4 py-2 fw-semibold"><i class="bi bi-envelope-paper me-2"></i>Solicitar orçamento</a>
-          <a href="#sobre" class="btn btn-outline-gold px-4 py-2 fw-semibold"><i class="bi bi-building me-2"></i>Conheça a ABC</a>
-        </div>
-        <!-- selo CNPJ rápido -->
-        <div class="mt-4 small text-secondary">
-          <i class="bi bi-patch-check-fill text-gold me-1"></i> CNPJ: 96.666.862/0001-27 · Ativa desde 2005
-        </div>
-      </div>
-      <div class="col-lg-5 text-center">
-        <div class="bg-white p-4 rounded-4 shadow-sm d-inline-block">
-          <i class="bi bi-tools display-1 text-gold"></i>
-          <i class="bi bi-gear-fill display-1 mx-2" style="color: #0A2F6C;"></i>
-          <i class="bi bi-box-seam display-1 text-gold"></i>
-          <p class="mt-3 fw-semibold">Peças originais e equipamentos de alto padrão</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<main class="container">
 
-<!-- Seção de Diferenciais + Ícones & Frases -->
-<section class="container py-5">
-  <div class="text-center mb-5">
-    <h2 class="section-title">Diferenciais ABC Náutica</h2>
-    <p class="text-secondary w-75 mx-auto">Atendimento especializado, estoque robusto e parceria com as melhores indústrias do setor de máquinas.</p>
-  </div>
-  <div class="row g-4">
-    <div class="col-md-6 col-lg-3">
-      <div class="info-card card p-4 text-center h-100">
-        <div class="card-icon"><i class="bi bi-archive"></i></div>
-        <h5 class="fw-bold">Peças e Componentes</h5>
-        <p class="text-muted">Partes e peças para máquinas industriais, desde hidráulica até automação.</p>
-      </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1280&q=80" alt="Pessoa sorrindo com fones" />
+      <div class="hero-overlay"><h1>Mais por você</h1></div>
     </div>
-    <div class="col-md-6 col-lg-3">
-      <div class="info-card card p-4 text-center h-100">
-        <div class="card-icon"><i class="bi bi-truck"></i></div>
-        <h5 class="fw-bold">Logística Ágil</h5>
-        <p class="text-muted">Entregas programadas para todo o território nacional. Agilidade que sua produção precisa.</p>
-      </div>
+    <div class="hero-card">
+      <h2>Atendimento Virtual</h2>
+      <p>Fale com a gente direto pelo WhatsApp, sem sair de casa.</p>
+      <a class="btn-wa" href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.04 0C5.5 0 .2 5.3.2 11.84c0 2.08.55 4.12 1.6 5.92L0 24l6.4-1.68a11.8 11.8 0 0 0 5.64 1.44h.01c6.53 0 11.84-5.3 11.84-11.84 0-3.16-1.23-6.13-3.37-8.44Z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <p class="helper">Não possui cadastro?</p>
+      <a class="btn-wa" href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.04 0C5.5 0 .2 5.3.2 11.84c0 2.08.55 4.12 1.6 5.92L0 24l6.4-1.68a11.8 11.8 0 0 0 5.64 1.44h.01c6.53 0 11.84-5.3 11.84-11.84 0-3.16-1.23-6.13-3.37-8.44Z"/></svg>
+        Cadastre-se
+      </a>
     </div>
-    <div class="col-md-6 col-lg-3">
-      <div class="info-card card p-4 text-center h-100">
-        <div class="card-icon"><i class="bi bi-cpu"></i></div>
-        <h5 class="fw-bold">Equipamentos Específicos</h5>
-        <p class="text-muted">Máquinas e equipamentos não especificados anteriormente — sob demanda e alta performance.</p>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-3">
-      <div class="info-card card p-4 text-center h-100">
-        <div class="card-icon"><i class="bi bi-headset"></i></div>
-        <h5 class="fw-bold">Suporte Técnico</h5>
-        <p class="text-muted">Assessoria completa para escolha da peça ou equipamento ideal ao seu negócio.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Seção Sobre a Empresa + mapa endereço + Dados -->
-<section id="sobre" class="py-5 bg-light">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-4 mb-lg-0">
-        <h2 class="section-title">Sobre a ABC Náutica LTDA</h2>
-        <p class="fs-5 fw-medium text-primary-custom"><i class="bi bi-calendar-check text-gold me-2"></i> Constituída em 07 de outubro de 2005</p>
-        <p>Com mais de 18 anos de experiência no comércio atacadista, somos referência em Santo André/SP para soluções em máquinas, equipamentos industriais e peças de reposição. Atuamos com compromisso, qualidade e agilidade, atendendo desde pequenas indústrias até grandes players do setor.</p>
-        <ul class="list-unstyled mt-3">
-          <li class="mb-2"><i class="bi bi-building-check text-gold me-2"></i> <strong>Razão Social:</strong> Abc Nautica LTDA</li>
-          <li class="mb-2"><i class="bi bi-tag-fill text-gold me-2"></i> <strong>Nome Fantasia:</strong> ABC Náutica LTDA</li>
-          <li class="mb-2"><i class="bi bi-card-list text-gold me-2"></i> <strong>CNPJ:</strong> 96.666.862/0001-27</li>
-          <li class="mb-2"><i class="bi bi-geo-alt-fill text-gold me-2"></i> <strong>Endereço Matriz:</strong> Avenida Dom Pedro II, 1369 - Jardim, Santo André - SP, 09080-110</li>
-          <li class="mb-2"><i class="bi bi-telephone-fill text-gold me-2"></i> <strong>Telefone:</strong> (11) 4990-7756</li>
-        </ul>
-        <a href="#contato" class="btn btn-primary-custom mt-2 px-4"><i class="bi bi-whatsapp me-2"></i>Fale com a equipe</a>
-      </div>
-      <div class="col-lg-6">
-        <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
-          <div class="card-body p-0">
-            <iframe src="https://maps.google.com/maps?q=Avenida%20Dom%20Pedro%20II%2C%201369%2C%20Santo%20Andr%C3%A9%20-%20SP%2C%2009080-110&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-top-4"></iframe>
-            <div class="p-3 bg-white">
-              <i class="bi bi-pin-map-fill text-gold"></i> <strong>Matriz</strong> – Jardim, Santo André. Fácil acesso para retirada e logística.
-            </div>
-          </div>
+  <!-- Quick services -->
+  <section class="section">
+    <h2>Acesso rápido aos principais serviços</h2>
+    <div class="grid-services">
+      <a class="service featured" href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.04 0C5.5 0 .2 5.3.2 11.84c0 2.08.55 4.12 1.6 5.92L0 24l6.4-1.68a11.8 11.8 0 0 0 5.64 1.44h.01c6.53 0 11.84-5.3 11.84-11.84 0-3.16-1.23-6.13-3.37-8.44Z"/></svg>
         </div>
-      </div>
+        <h3>2ª Via de Pagamento</h3>
+        <p>Perdeu a fatura? Sem problemas! Solicite sua segunda via agora.</p>
+        <span class="service-cta">Solicitar →</span>
+      </a>
+      <a class="service" href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.04 0C5.5 0 .2 5.3.2 11.84c0 2.08.55 4.12 1.6 5.92L0 24l6.4-1.68a11.8 11.8 0 0 0 5.64 1.44h.01c6.53 0 11.84-5.3 11.84-11.84 0-3.16-1.23-6.13-3.37-8.44Z"/></svg>
+        </div>
+        <h3>Nova Solicitação</h3>
+        <p>Faça sua solicitação para um novo atendimento sem precisar sair de casa.</p>
+        <span class="service-cta">Solicitar →</span>
+      </a>
+      <a class="service" href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.04 0C5.5 0 .2 5.3.2 11.84c0 2.08.55 4.12 1.6 5.92L0 24l6.4-1.68a11.8 11.8 0 0 0 5.64 1.44h.01c6.53 0 11.84-5.3 11.84-11.84 0-3.16-1.23-6.13-3.37-8.44Z"/></svg>
+        </div>
+        <h3>Troca de Titularidade</h3>
+        <p>Realize a troca de titularidade de forma rápida e segura.</p>
+        <span class="service-cta">Solicitar →</span>
+      </a>
+      <a class="service" href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.04 0C5.5 0 .2 5.3.2 11.84c0 2.08.55 4.12 1.6 5.92L0 24l6.4-1.68a11.8 11.8 0 0 0 5.64 1.44h.01c6.53 0 11.84-5.3 11.84-11.84 0-3.16-1.23-6.13-3.37-8.44Z"/></svg>
+        </div>
+        <h3>Cadastro de Parceiros</h3>
+        <p>Consulte o guia e descubra como cadastrar um novo parceiro.</p>
+        <span class="service-cta">Solicitar →</span>
+      </a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Seção Produtos / Atuação (Atacado máquinas e partes) -->
-<section class="container py-5">
-  <div class="text-center mb-5">
-    <h2 class="section-title">Nosso portfólio atacadista</h2>
-    <p class="text-secondary">Máquinas, equipamentos industriais e componentes para diversos segmentos.</p>
-  </div>
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card h-100 border-0 shadow-sm">
-        <div class="card-body text-center p-4">
-          <i class="bi bi-gear-wide-connected fs-1 text-gold"></i>
-          <h5 class="fw-bold mt-3">Equipamentos de linha</h5>
-          <p class="card-text text-secondary">Prensas, torno mecânico, motores industriais, sistemas hidráulicos e muito mais.</p>
+  <!-- Highlights -->
+  <section class="section">
+    <h2>Destaques</h2>
+    <div class="grid-highlights">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80" alt="Novo login" />
+        <div class="card-body">
+          <h3>Novo login, como fazer?</h3>
+          <p>Cadastre-se e tenha acesso a todos os serviços de maneira simples. <span class="link">Veja como pode facilitar seus pagamentos.</span></p>
+          <a class="btn-card" href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.04 0C5.5 0 .2 5.3.2 11.84c0 2.08.55 4.12 1.6 5.92L0 24l6.4-1.68a11.8 11.8 0 0 0 5.64 1.44h.01c6.53 0 11.84-5.3 11.84-11.84 0-3.16-1.23-6.13-3.37-8.44Z"/></svg>
+            Saiba Mais
+          </a>
         </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card h-100 border-0 shadow-sm">
-        <div class="card-body text-center p-4">
-          <i class="bi bi-box-seam fs-1 text-gold"></i>
-          <h5 class="fw-bold mt-3">Partes & Peças</h5>
-          <p class="card-text text-secondary">Componentes originais e de alta durabilidade: engrenagens, rolamentos, eixos, peças sob encomenda.</p>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80" alt="Golpes na internet" />
+        <div class="card-body">
+          <h3>Não caia em golpes na internet</h3>
+          <p>Conheça os principais golpes e aprenda <span class="link">cinco dicas para não cair em fraudes digitais.</span></p>
+          <a class="btn-card" href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.04 0C5.5 0 .2 5.3.2 11.84c0 2.08.55 4.12 1.6 5.92L0 24l6.4-1.68a11.8 11.8 0 0 0 5.64 1.44h.01c6.53 0 11.84-5.3 11.84-11.84 0-3.16-1.23-6.13-3.37-8.44Z"/></svg>
+            Saiba Mais
+          </a>
         </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card h-100 border-0 shadow-sm">
-        <div class="card-body text-center p-4">
-          <i class="bi bi-bricks fs-1 text-gold"></i>
-          <h5 class="fw-bold mt-3">Atendimento B2B</h5>
-          <p class="card-text text-secondary">Condições especiais para atacado, pronta entrega e suporte pós-venda.</p>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80" alt="Economia circular" />
+        <div class="card-body">
+          <h3>Economia circular</h3>
+          <p>Aprenda o que é economia circular e <span class="link">entenda os benefícios a longo prazo.</span></p>
+          <a class="btn-card" href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.04 0C5.5 0 .2 5.3.2 11.84c0 2.08.55 4.12 1.6 5.92L0 24l6.4-1.68a11.8 11.8 0 0 0 5.64 1.44h.01c6.53 0 11.84-5.3 11.84-11.84 0-3.16-1.23-6.13-3.37-8.44Z"/></svg>
+            Saiba Mais
+          </a>
         </div>
-      </div>
+      </article>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Frases de impacto / citação -->
-<div class="container my-4">
-  <div class="bg-primary-custom text-white p-4 rounded-4 text-center">
-    <i class="bi bi-quote fs-1 text-gold"></i>
-    <p class="lead mb-0 fst-italic">“Excelência em máquinas e equipamentos não especificados anteriormente — soluções customizadas com responsabilidade e agilidade.”</p>
-    <footer class="mt-2 text-gold fw-semibold">ABC Náutica LTDA</footer>
-  </div>
-</div>
+</main>
 
-<!-- Seção Contato + formulário rápido -->
-<section id="contato" class="py-5 bg-light">
-  <div class="container">
-    <div class="row g-5">
-      <div class="col-lg-5">
-        <h2 class="section-title">Entre em contato</h2>
-        <p class="mb-4">Precisa de um orçamento, peça específica ou mais informações sobre nosso catálogo atacadista? Nossa equipe está pronta para atender você.</p>
-        <div class="contact-info">
-          <div class="d-flex align-items-center mb-3">
-            <i class="bi bi-geo-alt fs-4 me-3"></i>
-            <span>Avenida Dom Pedro II, 1369 - Jardim, Santo André - SP, 09080-110</span>
-          </div>
-          <div class="d-flex align-items-center mb-3">
-            <i class="bi bi-telephone fs-4 me-3"></i>
-            <span>(11) 4990-7756</span>
-          </div>
-          <div class="d-flex align-items-center mb-3">
-            <i class="bi bi-envelope fs-4 me-3"></i>
-            <span>contato@abcnautica.com.br (e-mail comercial)</span>
-          </div>
-          <div class="d-flex align-items-center">
-            <i class="bi bi-clock-history fs-4 me-3"></i>
-            <span>Atendimento: Segunda a Sexta, 8h às 18h</span>
-          </div>
-        </div>
-        <div class="mt-4">
-          <a href="tel:+551149907756" class="btn btn-outline-gold me-2"><i class="bi bi-telephone-forward"></i> Ligue agora</a>
-          <a href="#" class="btn btn-primary-custom"><i class="bi bi-whatsapp"></i> WhatsApp Comercial</a>
-        </div>
-      </div>
-      <div class="col-lg-7">
-        <div class="card border-0 shadow rounded-4">
-          <div class="card-body p-4">
-            <h5 class="fw-bold mb-3">Envie uma mensagem rapidamente</h5>
-            <form action="#" method="post">
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label class="form-label">Nome completo</label>
-                  <input type="text" class="form-control" placeholder="Seu nome" required>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label">Telefone / WhatsApp</label>
-                  <input type="tel" class="form-control" placeholder="(11) 99999-9999">
-                </div>
-                <div class="col-12">
-                  <label class="form-label">E-mail</label>
-                  <input type="email" class="form-control" placeholder="contato@exemplo.com">
-                </div>
-                <div class="col-12">
-                  <label class="form-label">Mensagem / Interesse (máquina, peça, orçamento)</label>
-                  <textarea rows="3" class="form-control" placeholder="Descreva sua necessidade..."></textarea>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary-custom px-4">Enviar mensagem <i class="bi bi-send"></i></button>
-                </div>
-              </div>
-            </form>
-            <p class="small text-muted mt-3">*Entraremos em contato em até 1 dia útil.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Seção Políticas (Privacidade, Envio, Trocas e Devoluções) -->
-<section id="politicas" class="container py-5">
-  <div class="text-center mb-4">
-    <h2 class="section-title">Nossas Políticas</h2>
-    <p class="text-secondary">Compromisso com transparência e segurança para nossos clientes.</p>
-  </div>
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm border-0 rounded-4">
-        <div class="card-body p-4">
-          <i class="bi bi-shield-lock fs-1 text-gold"></i>
-          <h4 class="fw-bold mt-2">Políticas de Privacidade</h4>
-          <p class="mt-2">Respeitamos seus dados pessoais. Todas as informações fornecidas são tratadas com confidencialidade e utilizadas exclusivamente para viabilizar pedidos, orçamentos e melhorar nosso atendimento. Não compartilhamos dados com terceiros sem consentimento.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm border-0 rounded-4">
-        <div class="card-body p-4">
-          <i class="bi bi-truck fs-1 text-gold"></i>
-          <h4 class="fw-bold mt-2">Política de Envio</h4>
-          <p class="mt-2">Trabalhamos com transportadoras parceiras para todo o Brasil. Os prazos são informados no ato do pedido. Para retirada local, o cliente pode buscar em nossa matriz em Santo André após confirmação. Custos de frete são calculados conforme região e peso.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm border-0 rounded-4">
-        <div class="card-body p-4">
-          <i class="bi bi-arrow-repeat fs-1 text-gold"></i>
-          <h4 class="fw-bold mt-2">Trocas e Devoluções</h4>
-          <p class="mt-2">Caso haja algum defeito de fabricação ou não conformidade, entre em contato em até 7 dias corridos. Trocas de produtos novos e sem uso são analisadas individualmente. Nosso setor comercial está à disposição para garantir sua satisfação.</p>
-          <small class="text-muted">*Consulte condições específicas para peças e equipamentos.</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Rodapé com endereço, políticas reafirmadas e contato -->
-<footer class="footer pt-5 pb-4">
-  <div class="container">
-    <div class="row gy-4">
-      <div class="col-lg-4 col-md-6">
-        <h5 class="fw-bold text-white mb-3"><i class="bi bi-anchor me-2"></i>ABC Náutica LTDA</h5>
-        <p>Atacado de máquinas, equipamentos e peças industriais. Soluções sob medida para o seu negócio desde 2005.</p>
-        <div class="d-flex gap-3">
-          <a href="#" class="text-white-50"><i class="bi bi-facebook fs-5"></i></a>
-          <a href="#" class="text-white-50"><i class="bi bi-instagram fs-5"></i></a>
-          <a href="#" class="text-white-50"><i class="bi bi-linkedin fs-5"></i></a>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6">
-        <h5 class="fw-bold text-white">Links úteis</h5>
-        <ul class="list-unstyled">
-          <li><a href="#sobre" class="text-white-50 text-decoration-none">Sobre a ABC</a></li>
-          <li class="mt-2"><a href="#contato" class="text-white-50 text-decoration-none">Fale Conosco</a></li>
-          <li class="mt-2"><a href="#politicas" class="text-white-50 text-decoration-none">Políticas da empresa</a></li>
-          <li class="mt-2"><a href="#" class="text-white-50 text-decoration-none">Trabalhe conosco</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-5 col-md-12">
-        <h5 class="fw-bold text-white">Endereço e contato</h5>
-        <address class="text-white-50 mb-0">
-          <i class="bi bi-building me-1"></i> Avenida Dom Pedro II, 1369 - Jardim<br>
-          Santo André - SP, CEP 09080-110<br>
-          <i class="bi bi-telephone me-1"></i> (11) 4990-7756<br>
-          <i class="bi bi-envelope me-1"></i> abcnautica@comercial.com<br>
-          <i class="bi bi-clock me-1"></i> Segunda a Sexta: 08h - 18h
-        </address>
-      </div>
-    </div>
-    <hr class="mt-4 opacity-25">
-    <div class="text-center text-white-50 small">
-      © 2025 ABC Náutica LTDA | CNPJ: 96.666.862/0001-27 | Todas as vendas sujeitas à nossa política comercial. Site institucional.
-    </div>
-  </div>
+<footer>
+  © 2026 — Atendimento via WhatsApp disponível 24h.
 </footer>
 
-<!-- Bootstrap JS Bundle (necessário para navbar responsiva) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<!-- pequeno smooth para links internos -->
-<script>
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if(targetId === "#") return;
-      const targetElem = document.querySelector(targetId);
-      if(targetElem) {
-        e.preventDefault();
-        targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-</script>
+<!-- Floating WhatsApp -->
+<a class="float-wa" href="https://wa.me/message/QAJOFGIO6ILKN1" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.04 0C5.5 0 .2 5.3.2 11.84c0 2.08.55 4.12 1.6 5.92L0 24l6.4-1.68a11.8 11.8 0 0 0 5.64 1.44h.01c6.53 0 11.84-5.3 11.84-11.84 0-3.16-1.23-6.13-3.37-8.44Z"/></svg>
+</a>
+
 </body>
 </html>
