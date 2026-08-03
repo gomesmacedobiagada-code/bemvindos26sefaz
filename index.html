@@ -1,99 +1,94 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CEMIG - Atendimento</title>
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atendimento CEMIG</title>
 
-```
-body{
-  height:100vh;
-  background:url('cemig.jpeg') no-repeat center center fixed;
-  background-size:cover;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-.overlay{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.45);
+body{
+    background:url("index-imagens-embutidas/cemig.jpeg") no-repeat center center fixed;
+    background-size:cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
 }
 
 .container{
-  position:relative;
-  z-index:1;
-  text-align:center;
-  background:rgba(255,255,255,0.12);
-  backdrop-filter:blur(8px);
-  padding:40px;
-  border-radius:20px;
-  width:90%;
-  max-width:420px;
-  box-shadow:0 8px 30px rgba(0,0,0,0.35);
+    background:rgba(255,255,255,0.88);
+    width:380px;
+    max-width:90%;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
 .logo{
-  width:220px;
-  border-radius:12px;
-  margin-bottom:30px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.3);
-}
-
-h2{
-  color:#fff;
-  margin-bottom:25px;
-  font-size:24px;
+    width:250px;
+    margin-bottom:30px;
 }
 
 .btn{
-  display:block;
-  width:100%;
-  padding:16px;
-  margin:12px 0;
-  border:none;
-  border-radius:12px;
-  background:#0b6b3a;
-  color:white;
-  font-size:18px;
-  font-weight:bold;
-  text-decoration:none;
-  transition:0.3s;
+    display:block;
+    width:100%;
+    margin:12px 0;
+    padding:16px;
+    background:#006633;
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+    transition:.3s;
 }
 
 .btn:hover{
-  background:#0f8a4a;
-  transform:translateY(-2px);
+    background:#00994d;
+    transform:scale(1.03);
 }
 
-.btn:active{
-  transform:scale(0.98);
+.footer{
+    margin-top:20px;
+    color:#444;
+    font-size:13px;
 }
-```
+</style>
 
-  </style>
 </head>
 <body>
 
-<div class="overlay"></div>
-
 <div class="container">
-  <img src="cemig.jpeg" alt="Logo CEMIG" class="logo">
-  <h2>Atendimento CEMIG</h2>
 
-<a class="btn" href="https://wa.me/message/W2QVTO554UQEI1" target="_blank">2ª via</a> <a class="btn" href="https://wa.me/message/W2QVTO554UQEI1" target="_blank">Fatura digital</a> <a class="btn" href="https://wa.me/message/W2QVTO554UQEI1" target="_blank">Negociação de dívidas</a> <a class="btn" href="https://wa.me/message/W2QVTO554UQEI1" target="_blank">Fala com atendente</a>
+    <img src="index-imagens-embutidas/cemig.jpeg" class="logo" alt="CEMIG">
+
+    <a class="btn" href="https://wa.me/message/W2QVTO554UQEI1" target="_blank">
+        📄 2ª Via
+    </a>
+
+    <a class="btn" href="https://wa.me/message/W2QVTO554UQEI1" target="_blank">
+        📧 Fatura Digital
+    </a>
+
+    <a class="btn" href="https://wa.me/message/W2QVTO554UQEI1" target="_blank">
+        💰 Negociação de Dívidas
+    </a>
+
+    <a class="btn" href="https://wa.me/message/W2QVTO554UQEI1" target="_blank">
+        💬 Falar com Atendente
+    </a>
+
+    <div class="footer">
+        Atendimento via WhatsApp
+    </div>
 
 </div>
 
